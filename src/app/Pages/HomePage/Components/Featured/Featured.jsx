@@ -2,6 +2,7 @@ import React from "react";
 import "./Featured.css";
 import { Products } from "../../../../../../Data/data";
 import ProductCard from "../ProductCard/ProductCard";
+import { Link } from "react-router-dom";
 
 function Featured() {
   return (
@@ -9,7 +10,9 @@ function Featured() {
       <div className="featured-header">
         <h1>Featured</h1>
 
-        <a href="/">view all</a>
+        <Link to="/products" >
+          View all
+        </Link>
       </div>
 
       <div className="featured-slider">

@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProductFilter.css";
 
-function ProductFilter() {
-  const [filters, setFilters] = useState({
-    categories: ["Flowering"],
-    careLevels: [],
-    maxPrice: 150,
-    potColor: null,
-  });
-
+function ProductFilter({ filters, setFilters }) {
   const categories = [
     {
       name: "Flowering plants",
@@ -60,7 +53,7 @@ function ProductFilter() {
       value: "#e1846a",
     },
     {
-      name: "blue",
+      name: "Blue",
       value: "#31bc82",
     },
     {
@@ -74,49 +67,46 @@ function ProductFilter() {
   ];
 
   const handleCategoryChange = (value) => {
-    const exists = filters.categories.includes(value);
+    setFilters((previous) => {
+      const exists = previous.categories.includes(value);
 
-    const updated = exists
-      ? filters.categories.filter((item) => item !== value)
-      : [...filters.categories, value];
-
-    setFilters((previous) => ({
-      ...previous,
-      categories: updated,
-    }));
+      return {
+        ...previous,
+        categories: exists
+          ? previous.categories.filter((item) => item !== value)
+          : [...previous.categories, value],
+      };
+    });
   };
 
   const handleCareChange = (value) => {
-    const exists = filters.careLevels.includes(value);
+    setFilters((previous) => {
+      const exists = previous.careLevels.includes(value);
 
-    const updated = exists
-      ? filters.careLevels.filter((item) => item !== value)
-      : [...filters.careLevels, value];
-
-    setFilters((previous) => ({
-      ...previous,
-      careLevels: updated,
-    }));
+      return {
+        ...previous,
+        careLevels: exists
+          ? previous.careLevels.filter((item) => item !== value)
+          : [...previous.careLevels, value],
+      };
+    });
   };
 
   const handlePotColorChange = (value) => {
     setFilters((previous) => ({
       ...previous,
-      potColor: previous.potColor === value ? null : value,
+      potColor:
+        previous.potColor === value ? null : value,
     }));
   };
 
   const handlePriceChange = (event) => {
     const value = Number(event.target.value);
+
     setFilters((previous) => ({
       ...previous,
       maxPrice: value,
     }));
-
-    const min = 10;
-    const max = 150;
-    const progressPercent = ((value - min) / (max - min)) * 100;
-    event.target.style.setProperty("--range-progress", `${progressPercent}%`);
   };
 
   const clearFilters = () => {
@@ -130,6 +120,7 @@ function ProductFilter() {
 
   return (
     <aside className="product-filters">
+
       <div className="filter-section">
         <h3>Category</h3>
 
@@ -141,7 +132,9 @@ function ProductFilter() {
             >
               <input
                 type="checkbox"
-                checked={filters.categories.includes(category.value)}
+                checked={filters.categories.includes(
+                  category.value
+                )}
                 onChange={() =>
                   handleCategoryChange(category.value)
                 }
@@ -154,7 +147,6 @@ function ProductFilter() {
           ))}
         </div>
       </div>
-
 
       <div className="filter-section filter-price">
         <h3>Price</h3>
@@ -169,14 +161,15 @@ function ProductFilter() {
             value={filters.maxPrice}
             onChange={handlePriceChange}
             style={{
-              "--range-progress": `${((filters.maxPrice - 10) / (150 - 10)) * 100}%`,
+              "--range-progress": `${
+                ((filters.maxPrice - 10) / 140) * 100
+              }%`,
             }}
           />
 
           <span>${filters.maxPrice}</span>
         </div>
       </div>
-
 
       <div className="filter-section filter-pots-color">
         <h3>Pot Color</h3>
@@ -203,7 +196,6 @@ function ProductFilter() {
         </div>
       </div>
 
-
       <div className="filter-section care-level">
         <h3>Care Level</h3>
 
@@ -215,7 +207,9 @@ function ProductFilter() {
             >
               <input
                 type="checkbox"
-                checked={filters.careLevels.includes(level.value)}
+                checked={filters.careLevels.includes(
+                  level.value
+                )}
                 onChange={() =>
                   handleCareChange(level.value)
                 }
@@ -230,6 +224,7 @@ function ProductFilter() {
       </div>
 
       <button
+        type="button"
         className="clear-filters"
         onClick={clearFilters}
       >
@@ -241,3 +236,4 @@ function ProductFilter() {
 }
 
 export default ProductFilter;
+

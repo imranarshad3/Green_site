@@ -3,8 +3,8 @@ import { Grid2X2, List, ChevronDown } from "lucide-react";
 import "./Toolsbar.css";
 
 function ProductToolbar({
-  productCount = 9,
-  totalProducts = 240,
+  productCount = 0,
+  totalProducts = 0,
   sort = "featured",
   setSort,
   view = "grid",
@@ -24,18 +24,13 @@ function ProductToolbar({
             value={sort}
             onChange={(e) => setSort(e.target.value)}
             className="sort-select"
+            aria-label="Sort products"
           >
             <option value="featured">Featured</option>
             <option value="newest">Newest</option>
-            <option value="price-low">
-              Price: Low to High
-            </option>
-            <option value="price-high">
-              Price: High to Low
-            </option>
-            <option value="rating">
-              Highest Rated
-            </option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
           </select>
 
           <ChevronDown
@@ -47,6 +42,7 @@ function ProductToolbar({
         <div className="view-buttons">
 
           <button
+            type="button"
             className={`view-button ${
               view === "grid" ? "active" : ""
             }`}
@@ -57,6 +53,7 @@ function ProductToolbar({
           </button>
 
           <button
+            type="button"
             className={`view-button ${
               view === "list" ? "active" : ""
             }`}
@@ -65,9 +62,9 @@ function ProductToolbar({
           >
             <List size={17} strokeWidth={1.5} />
           </button>
-
+          
         </div>
-
+        
       </div>
 
     </div>

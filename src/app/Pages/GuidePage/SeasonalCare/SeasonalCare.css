@@ -1,0 +1,264 @@
+.seasonal-care-section {
+  width: 100%;
+  background: #eef1e8;
+  overflow: hidden;
+}
+
+.seasonal-care-inner {
+  width: 100%;
+  max-width: 1500px;
+  min-height: 700px;
+  margin: 0 auto;
+  padding: 85px 0 115px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 75px;
+  box-sizing: border-box;
+}
+
+.seasonal-care-content {
+  width: 100%;
+  max-width: 540px;
+  text-align: left;
+}
+
+.seasonal-care-kicker {
+  display: block;
+  margin-bottom: 34px;
+  color: #c2613d;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.seasonal-care-title {
+  margin: 0;
+  color: #173d32;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(56px, 5vw, 74px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.seasonal-care-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.seasonal-care-text {
+  margin: 12px 0 0;
+  color: #89948d;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.seasonal-care-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 49px;
+  margin-top: 16px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #123b30;
+  color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 12px 25px rgba(18, 59, 48, 0.16);
+  transition: transform 0.3s ease, background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.seasonal-care-button span {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.seasonal-care-button:hover {
+  background: #1d5042;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(18, 59, 48, 0.2);
+}
+
+.seasonal-care-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.seasonal-care-image {
+  width: 100%;
+  max-width: 620px;
+  height: 500px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+  box-shadow: 0 30px 70px rgba(34, 60, 47, 0.12);
+  transition: transform 0.7s ease;
+}
+
+.seasonal-care-image-wrapper:hover .seasonal-care-image {
+  transform: scale(1.015);
+}
+
+
+@media (max-width: 1300px) {
+  .seasonal-care-inner {
+    max-width: 1120px;
+    padding-right: 35px;
+    padding-left: 35px;
+    gap: 55px;
+  }
+
+  .seasonal-care-title {
+    font-size: 66px;
+  }
+
+  .seasonal-care-image {
+    max-width: 560px;
+    height: 480px;
+  }
+}
+
+
+@media (max-width: 1050px) {
+  .seasonal-care-inner {
+    max-width: 900px;
+    min-height: 620px;
+    padding-top: 75px;
+    padding-bottom: 85px;
+    gap: 40px;
+  }
+
+  .seasonal-care-title {
+    font-size: 56px;
+  }
+
+  .seasonal-care-text {
+    font-size: 14px;
+  }
+
+  .seasonal-care-image {
+    height: 440px;
+  }
+}
+
+
+@media (max-width: 850px) {
+  .seasonal-care-inner {
+    max-width: 680px;
+    min-height: auto;
+    padding: 75px 30px 90px;
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .seasonal-care-content {
+    max-width: 620px;
+  }
+
+  .seasonal-care-title {
+    font-size: clamp(52px, 9vw, 68px);
+  }
+
+  .seasonal-care-text {
+    max-width: 560px;
+    font-size: 15px;
+  }
+
+  .seasonal-care-image-wrapper {
+    justify-content: center;
+  }
+
+  .seasonal-care-image {
+    max-width: 620px;
+    height: 500px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .seasonal-care-inner {
+    padding: 60px 24px 70px;
+    gap: 42px;
+  }
+
+  .seasonal-care-kicker {
+    margin-bottom: 25px;
+    font-size: 10px;
+  }
+
+  .seasonal-care-title {
+    font-size: clamp(46px, 12vw, 60px);
+    line-height: 0.95;
+  }
+
+  .seasonal-care-text {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .seasonal-care-button {
+    min-height: 46px;
+    margin-top: 18px;
+    padding: 0 21px;
+  }
+
+  .seasonal-care-image {
+    height: 420px;
+    border-radius: 21px;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .seasonal-care-inner {
+    padding: 52px 20px 60px;
+    gap: 38px;
+  }
+
+  .seasonal-care-title {
+    font-size: 45px;
+    letter-spacing: -0.045em;
+  }
+
+  .seasonal-care-text {
+    font-size: 13.5px;
+  }
+
+  .seasonal-care-image {
+    height: 360px;
+    border-radius: 18px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .seasonal-care-inner {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .seasonal-care-title {
+    font-size: 40px;
+  }
+
+  .seasonal-care-image {
+    height: 330px;
+  }
+}

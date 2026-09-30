@@ -1,0 +1,161 @@
+.pf-guide-cta-section {
+  width: 100%;
+  padding: clamp(70px, 10vw, 140px) 20px;
+  background: #163b31;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.guide-cta {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.guide-cta-ticker {
+  margin: 0 0 clamp(20px, 3vw, 30px);
+  color: #e58b68;
+  font-size: clamp(9px, 1vw, 11px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: clamp(2px, 0.35vw, 3px);
+  text-transform: uppercase;
+}
+
+.guide-cta h2 {
+  width: 100%;
+  max-width: 950px;
+  margin: 0;
+  color: #f5f1e8;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: clamp(-4px, -0.3vw, -1.5px);
+  overflow-wrap: break-word;
+}
+
+.guide-cta-desc {
+  max-width: 500px;
+  margin: clamp(22px, 3vw, 32px) auto clamp(28px, 4vw, 40px);
+  color: rgba(245, 241, 232, 0.72);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.1px;
+}
+
+.guide-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 180px;
+  max-width: 100%;
+  padding: 17px 28px;
+  box-sizing: border-box;
+  background: #f5f1e8;
+  color: #163b31;
+  border: 1px solid #f5f1e8;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.guide-cta-button::after {
+  content: "↗";
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.guide-cta-button:hover {
+  background: transparent;
+  color: #f5f1e8;
+  transform: translateY(-3px);
+}
+
+.guide-cta-button:hover::after {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 768px) {
+  .pf-guide-cta-section {
+    padding: 80px 24px;
+  }
+
+  .guide-cta h2 {
+    max-width: 650px;
+    font-size: clamp(44px, 10vw, 68px);
+    line-height: 1;
+  }
+
+  .guide-cta-desc {
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pf-guide-cta-section {
+    padding: 70px 20px;
+  }
+
+  .guide-cta-ticker {
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  .guide-cta h2 {
+    max-width: 100%;
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+  }
+
+  .guide-cta-desc {
+    max-width: 360px;
+    margin-top: 22px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .guide-cta-button {
+    min-width: 170px;
+    padding: 16px 24px;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .pf-guide-cta-section {
+    padding: 60px 16px;
+  }
+
+  .guide-cta h2 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+
+  .guide-cta-desc {
+    max-width: 300px;
+    font-size: 13px;
+  }
+
+  .guide-cta-button {
+    width: 100%;
+    max-width: 190px;
+  }
+}

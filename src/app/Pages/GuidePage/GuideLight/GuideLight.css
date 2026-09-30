@@ -1,0 +1,227 @@
+.pf-plant-place-section {
+  width: 100%;
+  padding: 110px 6%;
+  background: #f5f3eb;
+  box-sizing: border-box;
+}
+
+.pf-plant-place-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 90px;
+}
+
+.pf-plant-place-image {
+  width: 52%;
+  height: 700PX;
+}
+
+.pf-plant-place-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.01);
+
+  transition: transform 0.6s ease;
+}
+
+.pf-plant-place-image:hover img {
+  transform: scale(1.035);
+}
+
+.pf-plant-place-content {
+  width: 48%;
+  max-width: 570px;
+}
+
+.pf-plant-place-label {
+  margin: 0 0 28px;
+
+  color: #bd603f;
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+  line-height: 1;
+
+  text-transform: uppercase;
+}
+
+.pf-plant-place-title {
+  margin: 0;
+
+  color: #12352a;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(54px, 5vw, 78px);
+  font-weight: 400;
+
+  line-height: 0.98;
+  letter-spacing: -3.5px;
+}
+
+.pf-plant-place-title em {
+  color: #365c4b;
+  font-style: italic;
+}
+
+.pf-plant-place-description {
+  max-width: 510px;
+
+  margin: 30px 0 38px;
+
+  color: #7d8982;
+
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+.pf-plant-place-guide {
+  width: 100%;
+
+  border-top: 1px solid rgba(18, 53, 42, 0.18);
+}
+
+.pf-plant-place-row {
+  min-height: 74px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(18, 53, 42, 0.18);
+
+  transition:
+    padding 0.3s ease,
+}
+
+.pf-plant-place-row:hover {
+  padding-left: 12px;
+  background: rgba(178, 66, 66, 0.45);
+}
+
+.pf-plant-place-level {
+  width: 105px;
+  flex-shrink: 0;
+
+  color: #967447;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.pf-plant-place-detail {
+  color: #68766f;
+
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+
+  letter-spacing: 1.2px;
+}
+
+@media (max-width: 1000px) {
+  .pf-plant-place-section {
+    padding: 90px 5%;
+  }
+
+  .pf-plant-place-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 65px;
+  }
+
+  .pf-plant-place-image {
+    width: 100%;
+    height: 540px;
+  }
+
+  .pf-plant-place-content {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .pf-plant-place-title {
+    font-size: clamp(52px, 8vw, 72px);
+  }
+
+  .pf-plant-place-description {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pf-plant-place-section {
+    padding: 60px 20px;
+  }
+
+  .pf-plant-place-container {
+    gap: 45px;
+  }
+
+  .pf-plant-place-image {
+    width: 100%;
+    height: 390px;
+    border-radius: 26px;
+  }
+
+  .pf-plant-light-place-image img {
+    object-fit: cover;
+  }
+
+  .pf-plant-place-content {
+    width: 100%;
+  }
+
+  .pf-plant-place-label {
+    margin-bottom: 22px;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .pf-plant-place-title {
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -2.3px;
+  }
+
+  .pf-plant-place-description {
+    margin: 25px 0 32px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .pf-plant-place-row {
+    min-height: 68px;
+  }
+
+  .pf-plant-place-level {
+    width: 85px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .pf-plant-place-detail {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+}

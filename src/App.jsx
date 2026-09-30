@@ -4,6 +4,7 @@ import Homepage from "./app/Pages/HomePage/Homepage";
 import Productspage from "./app/Pages/ProductsPage/Productspage";
 import ProductDetails from "./app/Pages/ProductDetails/ProductDetails";
 import FertilizerPage from "./app/Pages/FertilizerPage/FertilizerPage";
+import Guidepage from "./app/Pages/GuidePage/Guidepage";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products" element={<Productspage/>} />
         <Route path="/product/:id" element={<ProductDetails/>} />
         <Route path="/fertilizers" element = {<FertilizerPage />} />
+        <Route path="/guide" element = {<Guidepage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -42,7 +42,7 @@
 .featured-products {
   display: flex;
   align-items: stretch;
-  gap: 32px; /* Gap slightly increased for better breathing room between large cards */
+  gap: 32px; 
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -57,10 +57,9 @@
   display: none;
 }
 
-/* CARDS KI WIDTH BARHA DI GAI HAI (340px) */
 .featured-products .product-card {
-  flex: 0 0 calc(25% - 24px); /* Screen ke hisab se 4 cards exact fit honge */
-  min-width: 310px; /* Minimum width ensure karti hai k layout chota na paray */
+  flex: 0 0 calc(25% - 24px); 
+  min-width: 310px; 
   scroll-snap-align: start;
 }
 
@@ -96,9 +95,6 @@
   transform: translateY(-50%) scale(1.08);
 }
 
-/* =========================
-   RESPONSIVE MEDIA QUERIES
-========================= */
 
 @media (max-width: 1400px) {
   .featured-products .product-card {
