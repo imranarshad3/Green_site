@@ -25,6 +25,8 @@
 }
 
 .user-menu-dropdown {
+  color: var(--hm-ink);
+  text-align: left;
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
