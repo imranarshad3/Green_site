@@ -9,7 +9,6 @@ import SiteFooter from '../ProductDetails/SiteFooter/SiteFooter';
 
 import "./FertilizerPage.css"
 
-
 function FertilizerPage() {
   return (
         <div className="fertilizer-page">

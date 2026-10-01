@@ -18,8 +18,6 @@
   color: #ffffff;
   text-decoration: none;
 }
-
-/* Staggered editorial rhythm. */
 .hm-arrival.is-offset {
   transform: translateY(2.5rem);
 }

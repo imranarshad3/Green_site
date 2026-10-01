@@ -11,8 +11,6 @@ const FEATURED_COUNT = 4;
 function Featured() {
   const { plants, loading, error } = useProducts();
 
-  // Badged products (SALE, NEW, BESTSELLER) are the ones being promoted;
-  // fall back to the first plants if fewer are badged.
   const featuredProducts = [
     ...plants.filter((product) => product.badge),
     ...plants.filter((product) => !product.badge),

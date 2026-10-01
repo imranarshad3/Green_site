@@ -12,7 +12,7 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: #555d59; /* Default gray circle color matching your design */
+  background: #555d59;
   color: #eee9dc;
   font-family: Arial, sans-serif;
   font-size: 0.8125rem;
@@ -26,8 +26,6 @@
 .pagination-btn:hover:not(:disabled) {
   background: #6a736f;
 }
-
-/* Active page style (Dark green matching your theme) */
 .pagination-btn.active {
   background: #174d40;
   color: #eee9dc;

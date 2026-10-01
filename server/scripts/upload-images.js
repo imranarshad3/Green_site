@@ -1,13 +1,3 @@
-// Uploads supabase/storage/product-images/** to the "product-images" bucket.
-//
-// Needs the service role key, which bypasses row-level security, so it is read
-// from server/.env (git-ignored) and must never be committed or put in client/:
-//
-//   SUPABASE_URL=https://<project-ref>.supabase.co
-//   SUPABASE_SERVICE_ROLE_KEY=<secret key>
-//
-// Run with: npm run upload-images -w server
-
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, extname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -46,7 +36,6 @@ const walk = (dir) =>
     return statSync(path).isDirectory() ? walk(path) : [path];
   });
 
-// setup.sql also creates the bucket; this covers running the upload first.
 const { error: bucketError } = await supabase.storage.getBucket(BUCKET);
 
 if (bucketError) {

@@ -15,7 +15,6 @@ function AccountWishlist({ maxItems = 4 }) {
   const { wishlistProducts: allWishlistProducts, removeFromWishlist } =
     useWishlist();
 
-  // Most recently saved first.
   const wishlistProducts = [...allWishlistProducts]
     .reverse()
     .slice(0, maxItems);

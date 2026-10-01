@@ -16,7 +16,6 @@ function Footer() {
                 </div>
             </div>
 
-            
             <div className="container">
                 <div className="logo">
                     <ShieldCheck />
@@ -46,7 +45,6 @@ function Footer() {
                     <p>4.9 average rating</p>
                 </div>
             </div>
-
 
         </div>
 

@@ -151,8 +151,6 @@
 .fert-shop-card-bottom a:hover::after {
   transform: scaleX(1);
 }
-
-/* Tablet Screens */
 @media (max-width: 1024px) {
   .fert-shop-section {
     padding: 60px 5%;
@@ -165,8 +163,6 @@
     height: 350px;
   }
 }
-
-/* Mobile Screens */
 @media (max-width: 768px) {
   .fert-shop-section {
     padding: 40px 20px;
@@ -182,8 +178,6 @@
     height: 320px;
   }
 }
-
-/* Extra Small Mobile Screens */
 @media (max-width: 480px) {
   .fert-shop-card-image {
     height: 280px;

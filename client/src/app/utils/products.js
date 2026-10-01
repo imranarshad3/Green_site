@@ -7,7 +7,6 @@ export const getImageUrl = (path) =>
     ? `${SUPABASE_URL}/storage/v1/object/public/${PRODUCT_IMAGES_BUCKET}/${path}`
     : "";
 
-// Database row -> the shape the components use.
 export const toProduct = (row) => ({
   id: row.id,
   type: row.type,

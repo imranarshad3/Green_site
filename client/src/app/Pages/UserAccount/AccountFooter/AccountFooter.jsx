@@ -75,7 +75,6 @@ function AccountFooter() {
               <Link to="/products">
                 Plant stands
               </Link>
-              
 
             </div>
 

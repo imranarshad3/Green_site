@@ -35,8 +35,6 @@ const ProductHero = ({ product }) => {
   const [potStyle, setPotStyle] = useState(DEFAULT_POT_STYLE);
   const [popping, setPopping] = useState(false);
 
-  // The cart line for the currently selected size/pot. Once it exists the
-  // stepper edits the cart directly; before that it picks how many to add.
   const cartLine = useCartLine(product, { size, potStyle });
   const inCart = Boolean(cartLine.cartItem);
   const shownQuantity = inCart ? cartLine.quantity : quantity;
@@ -64,7 +62,6 @@ const ProductHero = ({ product }) => {
         )
       : null;
 
-  // Size and pot style only apply to plants.
   const hasPlantOptions = product?.type !== "fertilizer";
 
   const handleAddToCart = () => {

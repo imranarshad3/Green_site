@@ -9,12 +9,9 @@ function AdminOnly({ children }) {
     return null;
   }
 
-  // Non-admins get the same page as a missing route.
   return isAdmin ? children : <NotFoundPage />;
 }
 
-// The real protection is row-level security in the database; this only keeps
-// the admin UI out of sight.
 function AdminRoute({ children }) {
   return (
     <ProtectedRoute>

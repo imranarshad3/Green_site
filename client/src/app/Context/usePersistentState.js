@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// useState that is mirrored to localStorage under `key`.
 export function usePersistentState(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {
@@ -15,7 +14,6 @@ export function usePersistentState(key, initialValue) {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch {
-      // Storage can be unavailable (private mode, quota); keep in-memory state.
     }
   }, [key, value]);
 

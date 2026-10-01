@@ -89,8 +89,6 @@
   line-height: 1;
 }
 
-/* Decorative circles */
-
 .collection-circle {
   position: absolute;
   border: 1px solid rgba(200, 164, 92, 0.25);
@@ -112,8 +110,6 @@
   right: 28px;
 }
 
-/* Tablet */
-
 @media (max-width: 900px) {
   .collection-content {
     padding: 75px 7%;
@@ -131,8 +127,6 @@
     right: -60px;
   }
 }
-
-/* Mobile */
 
 @media (max-width: 600px) {
   .collection-hero {

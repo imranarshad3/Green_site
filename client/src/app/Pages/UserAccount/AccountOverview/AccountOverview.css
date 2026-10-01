@@ -524,8 +524,6 @@
     font-size: 1.75rem;
   }
 }
-
-/* These open Clerk's profile modal, so they are buttons styled as links. */
 button.account-edit-link,
 button.account-profile-action {
   background: none;

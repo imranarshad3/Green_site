@@ -22,7 +22,6 @@ function GuidePage() {
             <GuideCta />
             <SiteFooter />
 
-            
         </div>
   )
 }

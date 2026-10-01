@@ -34,7 +34,6 @@ function CartPage() {
   const hasItems = cartItems.length > 0;
 
   const handleCheckout = async () => {
-    // Guests sign in first; their cart is merged into the account.
     if (!isSignedIn) {
       openSignIn();
       return;

@@ -12,7 +12,6 @@
   padding-bottom: 50px;
 }
 
-
 .product-story-content {
   display: flex;
   flex-direction: column;
@@ -58,7 +57,6 @@
   color: #62736b;
   text-align: left;
 }
-
 
 .product-story-features {
   width: 100%;
@@ -106,7 +104,6 @@
   text-align: left;
 }
 
-
 .pd-story-image {
   width: calc(100% - 10px);
   height: 100%;
@@ -124,8 +121,6 @@
   object-fit: cover;
   object-position: center;
 }
-
-
 
 @media (max-width: 900px) {
   .product-story {
@@ -160,8 +155,6 @@
     min-height: 500px;
   }
 }
-
-
 
 @media (max-width: 600px) {
   .product-story {

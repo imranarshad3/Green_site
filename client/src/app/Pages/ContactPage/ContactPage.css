@@ -26,8 +26,6 @@
   padding-bottom: 6rem;
 }
 
-/* Form */
-
 .ct-form {
   display: flex;
   flex-direction: column;
@@ -131,8 +129,6 @@
   font-family: var(--hm-sans);
   cursor: pointer;
 }
-
-/* Info */
 
 .ct-info {
   display: grid;

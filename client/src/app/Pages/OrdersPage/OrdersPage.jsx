@@ -17,7 +17,6 @@ function OrdersPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [sort, setSort] = useState("latest");
 
-  // Orders are stored newest first.
   const filteredOrders = (
     activeFilter === "All"
       ? orders

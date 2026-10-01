@@ -62,9 +62,9 @@ function ProductToolbar({
           >
             <List size={17} strokeWidth={1.5} />
           </button>
-          
+
         </div>
-        
+
       </div>
 
     </div>

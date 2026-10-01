@@ -9,7 +9,6 @@ export function OrdersProvider({ children }) {
   const supabase = useSupabase();
   const { isLoaded, isSignedIn, userId } = useAuth();
 
-  // Newest first, tagged with their owner.
   const [state, setState] = useState({ owner: null, orders: [] });
   const [error, setError] = useState(null);
 
@@ -20,7 +19,6 @@ export function OrdersProvider({ children }) {
       supabase
         .from("orders")
         .select(ORDER_SELECT)
-        // Admins can read every order; this list is only the user's own.
         .eq("user_id", owner)
         .order("created_at", { ascending: false })
         .then(({ data, error: fetchError }) => {
@@ -39,8 +37,6 @@ export function OrdersProvider({ children }) {
     }
   }, [isLoaded, isSignedIn, userId, load]);
 
-  // Checkout happens in the database: place_order() prices the saved cart,
-  // creates the order and empties the cart.
   const placeOrder = async () => {
     const { data, error: rpcError } = await supabase.rpc("place_order");
 

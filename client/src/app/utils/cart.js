@@ -26,14 +26,11 @@ export const POT_STYLES = ["Ivory", "Sand", "Charcoal"];
 export const DEFAULT_SIZE = "Medium";
 export const DEFAULT_POT_STYLE = "Ivory";
 
-// Identifies one cart line: a product plus its size/pot options. Fertilizers
-// have no options, so they get one line per product.
 export const getCartItemId = (product, size, potStyle) =>
   product.type === "fertilizer"
     ? `${product.type}-${product.id}`
     : `${product.type}-${product.id}-${size}-${potStyle}`;
 
-// Builds the item passed to addToCart.
 export function buildCartItem(
   product,
   { size = DEFAULT_SIZE, potStyle = DEFAULT_POT_STYLE, quantity = 1 } = {}

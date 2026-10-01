@@ -33,7 +33,6 @@ const toForm = (product) => ({
 
 const blankToNull = (value) => (value === "" ? null : value);
 
-// Form values -> database columns.
 const toRow = (form) => ({
   type: form.type,
   name: form.name.trim(),
@@ -45,7 +44,6 @@ const toRow = (form) => ({
   images: form.imagePaths,
   description: form.description.trim(),
   is_active: form.isActive,
-  // Care details only apply to plants.
   care_level: form.type === "plant" ? blankToNull(form.careLevel) : null,
   light: form.type === "plant" ? blankToNull(form.light.trim()) : null,
   watering: form.type === "plant" ? blankToNull(form.watering.trim()) : null,
@@ -112,8 +110,6 @@ function ProductForm({ product, onDone, onCancel }) {
     setUploading(false);
   };
 
-  // Only detaches the image from the product; the file stays in storage in
-  // case another product uses it.
   const removeImage = (path) => {
     setForm((previous) => ({
       ...previous,

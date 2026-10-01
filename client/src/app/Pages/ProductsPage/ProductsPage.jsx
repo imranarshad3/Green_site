@@ -37,8 +37,6 @@ function matchesFilters(product, filters) {
   return categoryMatch && careMatch && priceMatch && potColorMatch;
 }
 
-// "featured" keeps catalog order; there is no date field, so "newest" uses
-// the highest ids.
 const sorters = {
   featured: () => 0,
   newest: (a, b) => b.id - a.id,
@@ -97,7 +95,6 @@ function ProductsPage() {
           </aside>
 
           <section className="products-collection">
-            {/* Keyed so pagination returns to page 1 whenever the result set changes. */}
             <Collection
               key={`${JSON.stringify(filters)}-${sort}`}
               products={visibleProducts}

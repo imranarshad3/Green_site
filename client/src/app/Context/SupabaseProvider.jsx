@@ -11,10 +11,6 @@ if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
   throw new Error("Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY");
 }
 
-// One Supabase client for the app. Every request carries the current Clerk
-// session token (Supabase is configured with Clerk as a third-party auth
-// provider), so row-level security sees the Clerk user id as auth.jwt()->>'sub'.
-// Signed-out requests go out with the anon key only.
 export function SupabaseProvider({ children }) {
   const clerk = useClerk();
 

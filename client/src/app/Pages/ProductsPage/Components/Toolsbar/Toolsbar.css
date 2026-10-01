@@ -31,8 +31,6 @@
   gap: 18px;
 }
 
-/* Sort */
-
 .sort-wrapper {
   position: relative;
   width: 160px;
@@ -89,8 +87,6 @@
   pointer-events: none;
 }
 
-/* View buttons */
-
 .view-buttons {
   display: flex;
   height: 37px;
@@ -133,8 +129,6 @@
   border-color: #153d34;
 }
 
-/* Tablet */
-
 @media (max-width: 700px) {
   .product-toolbar {
     height: 62px;
@@ -148,8 +142,6 @@
     width: 140px;
   }
 }
-
-/* Mobile */
 
 @media (max-width: 500px) {
   .product-toolbar {

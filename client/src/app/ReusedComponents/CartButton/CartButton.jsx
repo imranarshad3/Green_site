@@ -4,9 +4,6 @@ import { useCartLine } from "../../Context/useCartLine";
 import QuantityStepper from "./QuantityStepper";
 import "./CartButton.css";
 
-// Add-to-cart button that, once the product is in the cart, disables itself
-// and shows a stepper controlling that cart line's quantity. Pressing − at 1
-// removes the line and brings the button back.
 function CartButton({
   product,
   options,

@@ -20,10 +20,6 @@ const lineFromItem = (item) => ({
   potStyle: item.selectedPotStyle ?? null,
 });
 
-// Guests keep their cart in localStorage. Signed-in users' carts live in the
-// cart_items table; local state is updated optimistically and writes are
-// queued so they reach the database in order. On sign-in the guest cart is
-// merged into the user's saved cart.
 export function CartProvider({ children }) {
   const supabase = useSupabase();
   const { isLoaded, isSignedIn, userId } = useAuth();
@@ -33,7 +29,6 @@ export function CartProvider({ children }) {
     "plantify-guest-cart",
     []
   );
-  // Tagged with the owner so a previous user's cart is never shown.
   const [userCart, setUserCart] = useState({ owner: null, lines: [] });
   const [error, setError] = useState(null);
   const writeQueue = useRef(Promise.resolve());
@@ -57,7 +52,6 @@ export function CartProvider({ children }) {
     [supabase]
   );
 
-  // Latest guest cart, read by the sign-in effect without re-running it.
   const guestLinesRef = useRef(guestLines);
 
   useEffect(() => {
@@ -111,7 +105,6 @@ export function CartProvider({ children }) {
     writeQueue.current = writeQueue.current
       .then(() => persistLineQuantity(supabase, line, quantity))
       .catch((writeError) => {
-        // Resync with what the database actually holds.
         setError(writeError);
         return loadUserCart(userId);
       });
@@ -162,8 +155,6 @@ export function CartProvider({ children }) {
     }
   };
 
-  // Used after checkout, when place_order() has already emptied the
-  // database cart.
   const resetCart = () => {
     if (isSignedIn) {
       setUserCart({ owner: userId, lines: [] });

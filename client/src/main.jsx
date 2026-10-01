@@ -9,7 +9,6 @@ import { OrdersProvider } from "./app/Context/OrdersProvider";
 import { ClerkProvider } from "@clerk/clerk-react";
 import "./styles/base.css";
 
-
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {

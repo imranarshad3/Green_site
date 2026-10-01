@@ -610,8 +610,6 @@
   background: #2f6b57;
   cursor: default;
 }
-
-/* Highlights the quantity control while it edits the cart line. */
 .productactions .ph-quantity.is-in-cart {
   border-color: #2f6b57;
   box-shadow: 0 0 0 1px #2f6b57;

@@ -1,8 +1,6 @@
 import { useCart } from "./CartContext";
 import { buildCartItem } from "../utils/cart";
 
-// The cart line a product (with the given size/pot options) maps to, plus
-// actions scoped to that line. `cartItem` is undefined until it's added.
 export function useCartLine(product, options) {
   const { cartItems, addToCart, increaseQuantity, decreaseQuantity } =
     useCart();

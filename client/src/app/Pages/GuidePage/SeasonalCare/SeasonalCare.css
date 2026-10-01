@@ -115,7 +115,6 @@
   transform: scale(1.015);
 }
 
-
 @media (max-width: 1300px) {
   .seasonal-care-inner {
     max-width: 1120px;
@@ -133,7 +132,6 @@
     height: 480px;
   }
 }
-
 
 @media (max-width: 1050px) {
   .seasonal-care-inner {
@@ -156,7 +154,6 @@
     height: 440px;
   }
 }
-
 
 @media (max-width: 850px) {
   .seasonal-care-inner {
@@ -189,7 +186,6 @@
     height: 500px;
   }
 }
-
 
 @media (max-width: 600px) {
   .seasonal-care-inner {
@@ -225,7 +221,6 @@
   }
 }
 
-
 @media (max-width: 450px) {
   .seasonal-care-inner {
     padding: 52px 20px 60px;
@@ -246,7 +241,6 @@
     border-radius: 18px;
   }
 }
-
 
 @media (max-width: 360px) {
   .seasonal-care-inner {

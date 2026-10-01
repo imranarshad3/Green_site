@@ -1,8 +1,6 @@
 import React from "react";
 import "./ProductFilter.css";
 
-// Swatch values match the hex codes in each product's `colors` list; the
-// names follow the pot styles offered on the product page.
 const potColors = [
   {
     name: "Ivory",

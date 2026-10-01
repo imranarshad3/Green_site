@@ -7,8 +7,6 @@ import { toProduct } from "../utils/products";
 const fetchProducts = (supabase) =>
   supabase.from("products").select("*").order("id");
 
-// The whole catalog is small, so it is loaded once and shared. Row-level
-// security limits it to active products (admins also get inactive ones).
 export function ProductsProvider({ children }) {
   const supabase = useSupabase();
   const [products, setProducts] = useState([]);

@@ -64,6 +64,7 @@ No tests are configured. The Supabase CLI isn't linked on this machine, so new m
 **Cart buttons:** `ReusedComponents/CartButton/CartButton.jsx` adds an item (defaulting to Medium and Ivory), then disables itself and shows a `QuantityStepper` bound to that cart line. It's built on `useCartLine(product, options)`, which `ProductHero` also uses directly.
 
 **Conventions:**
+- Source files (JS/JSX, CSS, SQL, scripts) contain no comments, by the owner's choice. Don't add any; put explanations in this file or in commit messages instead.
 - Each page section lives in its own folder with a matching `.jsx` and `.css` file.
 - All CSS is global and scoped by class-name prefix, so check new class names for collisions. The only intentional global rule is the margin/padding reset in `src/styles/base.css`.
 - Fraunces (display) and Inter (body) load from Google Fonts in `index.html`.

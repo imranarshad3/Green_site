@@ -88,8 +88,6 @@
 .hm-hero-link:hover {
   border-color: #ffffff;
 }
-
-/* Gallery: two stacked tiles beside a tall feature tile. */
 .hm-hero-gallery {
   display: grid;
   grid-template-columns: 0.8fr 1fr;

@@ -206,7 +206,6 @@
   line-height: 1;
 }
 
-
 @media (max-width: 1300px) {
   .pf-guidehero-div {
     max-width: 1120px;
@@ -224,7 +223,6 @@
     height: 500px;
   }
 }
-
 
 @media (max-width: 1050px) {
   .pf-guidehero-div {
@@ -247,7 +245,6 @@
     height: 450px;
   }
 }
-
 
 @media (max-width: 850px) {
   .pf-guidehero-div {
@@ -276,7 +273,6 @@
     height: 500px;
   }
 }
-
 
 @media (max-width: 600px) {
   .pf-guidehero-div {
@@ -318,7 +314,6 @@
     padding: 16px 18px;
   }
 }
-
 
 @media (max-width: 450px) {
   .pf-guidehero-div {
@@ -362,7 +357,6 @@
     font-size: 0.75rem;
   }
 }
-
 
 @media (max-width: 360px) {
   .pf-guidehero-div {

@@ -149,9 +149,6 @@
 .search-product-info {
   padding: 22px 22px 25px;
 }
-
-/* Product cards default to light text for the dark products page; search
-   results sit on a light background. */
 .search-products .product-category {
   margin: 0 0 9px;
   color: #718078;

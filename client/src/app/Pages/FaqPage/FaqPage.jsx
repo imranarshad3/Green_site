@@ -13,8 +13,6 @@ import {
 import { GUARANTEE_DAYS, RETURN_DAYS, STORE } from "../../utils/storeInfo";
 import "./FaqPage.css";
 
-// Answers only restate policies the store already shows elsewhere (cart,
-// product pages, checkout, account pages).
 const SECTIONS = [
   {
     id: "delivery",
@@ -100,7 +98,6 @@ const SECTIONS = [
 function FaqPage() {
   const { hash } = useLocation();
 
-  // Client-side navigation to /faq#section doesn't scroll by itself.
   useEffect(() => {
     if (hash) {
       document.getElementById(hash.slice(1))?.scrollIntoView();

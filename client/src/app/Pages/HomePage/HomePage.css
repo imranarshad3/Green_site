@@ -1,5 +1,3 @@
-/* Home page layout. Every home class is prefixed "hm-" because all CSS in
-   the app is global; the --hm-* tokens live in src/styles/base.css. */
 .home {
   background: #ffffff;
   color: var(--hm-ink);

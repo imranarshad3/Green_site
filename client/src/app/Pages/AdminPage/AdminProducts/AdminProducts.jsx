@@ -8,7 +8,6 @@ import ProductForm from "../ProductForm/ProductForm";
 function AdminProducts() {
   const supabase = useSupabase();
   const { allProducts, loading, reload } = useProducts();
-  // null = list view, "new" = create form, otherwise the product being edited.
   const [editing, setEditing] = useState(null);
   const [error, setError] = useState(null);
 

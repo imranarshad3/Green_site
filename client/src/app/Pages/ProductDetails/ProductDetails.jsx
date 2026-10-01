@@ -15,7 +15,6 @@ import ProductRelated from "./ProductRelated/ProductRelated";
 import SiteFooter from "./SiteFooter/SiteFooter";
 
 function ProductDetails() {
-
   const { id } = useParams();
   const location = useLocation();
   const { findProduct, loading } = useProducts();
@@ -43,7 +42,6 @@ function ProductDetails() {
 
       <Navbar />
 
-      {/* Keyed so gallery/quantity state resets when moving between products. */}
       <ProductHero key={getProductKey(product)} product={product} />
 
       {!isFertilizer && <ProductSpecs product={product} />}

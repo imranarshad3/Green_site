@@ -25,7 +25,6 @@ function QuantityStepper({
         <Minus size={compact ? 13 : 15} />
       </button>
 
-      {/* Keyed so the bump animation replays on every change. */}
       <span key={quantity} className="cart-stepper-count" aria-live="polite">
         {quantity}
       </span>

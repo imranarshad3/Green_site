@@ -5,12 +5,10 @@
   padding: 70px 20px;
   background-color: rgb(246, 234, 216);
   color: black;
-  flex-wrap: wrap; 
-  gap: 30px;     
+  flex-wrap: wrap;
+  gap: 30px;
 
 }
-
-/* Tablet screens */
 @media (max-width: 900px) {
   .fert-strip {
     justify-content: center;
@@ -18,11 +16,9 @@
     padding: 40px 15px;
   }
 }
-
-/* Mobile screens */
 @media (max-width: 600px) {
   .fert-strip {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 30px 20px;

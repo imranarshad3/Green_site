@@ -5,7 +5,6 @@ import ProtectedRoute from "./app/ReusedComponents/ProtectedRoute/ProtectedRoute
 import AdminRoute from "./app/ReusedComponents/AdminRoute/AdminRoute";
 import NotFoundPage from "./app/Pages/NotFoundPage/NotFoundPage";
 
-// Every page except the home page is its own chunk, loaded on first visit.
 const ProductsPage = lazy(() => import("./app/Pages/ProductsPage/ProductsPage"));
 const ProductDetails = lazy(() => import("./app/Pages/ProductDetails/ProductDetails"));
 const FertilizerPage = lazy(() => import("./app/Pages/FertilizerPage/FertilizerPage"));

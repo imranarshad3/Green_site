@@ -1,5 +1,3 @@
--- Initial catalog, generated from the original frontend data files.
--- Image paths are object keys in the public "product-images" storage bucket.
 insert into public.products
   (type, name, slug, category, price, old_price, rating, reviews, badge, images,
    care_level, colors, light, watering, pet_friendly, description)
