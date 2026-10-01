@@ -10,7 +10,7 @@ import {
   DISCOUNT_MIN,
   FREE_DELIVERY_MIN,
 } from "../../utils/cart";
-import { STORE } from "../../utils/storeInfo";
+import { GUARANTEE_DAYS, RETURN_DAYS, STORE } from "../../utils/storeInfo";
 import "./FaqPage.css";
 
 // Answers only restate policies the store already shows elsewhere (cart,
@@ -64,12 +64,12 @@ const SECTIONS = [
     questions: [
       {
         q: "What is your returns policy?",
-        a: "Returns are hassle-free within 14 days. Get in touch with your order number and we'll help.",
+        a: `Returns are hassle-free within ${RETURN_DAYS} days. Get in touch with your order number and we'll help.`,
         link: { to: "/contact", label: "Contact us" },
       },
       {
         q: "What if my plant arrives unwell?",
-        a: "Every plant is covered by our healthy plant guarantee. Send us a message with your order number and a photo, and we'll make it right.",
+        a: `Every plant is covered by our ${GUARANTEE_DAYS}-day healthy plant guarantee. If it arrives unwell, send us a message with your order number and a photo, and we'll make it right.`,
         link: { to: "/contact", label: "Contact us" },
       },
     ],

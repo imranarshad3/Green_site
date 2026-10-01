@@ -21,8 +21,8 @@
 .account-orders-kicker {
   margin: 0 0 15px;
   color: #89958d;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2.3px;
   text-transform: uppercase;
@@ -31,7 +31,7 @@
 .account-orders-heading h2 {
   margin: 0;
   color: #173f30;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: clamp(2.8125rem, 5vw, 4.375rem);
   font-weight: 400;
   letter-spacing: -3px;
@@ -47,8 +47,8 @@
   max-width: 500px;
   margin: 22px 0 0;
   color: #748078;
-  font-family: "Inter", sans-serif;
-  font-size: 0.8125rem;
+  font-family: var(--hm-sans);
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -59,8 +59,8 @@
   padding-bottom: 8px;
   color: #173f30;
   border-bottom: 1px solid rgba(23, 63, 48, 0.3);
-  font-family: "Inter", sans-serif;
-  font-size: 0.6875rem;
+  font-family: var(--hm-sans);
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -145,8 +145,8 @@
   border-radius: 5px;
   color: #ffffff;
   background: #173f30;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   font-weight: 700;
 }
 
@@ -157,8 +157,8 @@
 .account-order-id {
   margin: 0 0 7px;
   color: #89958d;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1.6px;
 }
@@ -168,7 +168,7 @@
   margin: 0;
   overflow: hidden;
   color: #173f30;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 1.25rem;
   font-weight: 400;
   letter-spacing: -0.4px;
@@ -179,8 +179,8 @@
 .account-order-date {
   margin: 7px 0 0;
   color: #89938d;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
 }
 
 .account-order-status {
@@ -195,8 +195,8 @@
   gap: 7px;
   padding: 8px 11px;
   border-radius: 999px;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -214,7 +214,7 @@
 
 .account-order-status strong {
   color: #173f30;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 1.25rem;
   font-weight: 400;
   white-space: nowrap;
@@ -256,7 +256,7 @@
 .account-orders-bottom p {
   margin: 0;
   color: #8a948d;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 0.875rem;
   font-style: italic;
 }
@@ -266,8 +266,8 @@
   align-items: center;
   gap: 7px;
   color: #173f30;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   font-weight: 600;
   text-decoration: none;
 }
@@ -303,7 +303,7 @@
   }
 
   .account-orders-description {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   .account-order-card {
@@ -380,7 +380,7 @@
 
   .account-order-status-badge {
     padding: 7px 9px;
-    font-size: 0.625rem;
+    font-size: 0.8125rem;
   }
 
   .account-order-status strong {

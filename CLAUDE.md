@@ -59,6 +59,8 @@ No tests are configured. The Supabase CLI isn't linked on this machine, so new m
 - `*` renders `NotFoundPage`. `/contact` and `/faq` are real pages, and `/shipping` redirects to `/faq#delivery`.
 - Every page except `HomePage` is `React.lazy`-loaded, so a page's CSS only loads with it. Never rely on another page's stylesheet: give page-specific elements unique class names. The product page uses `ph-*`, because `product-price` and similar names also exist in the product-card CSS.
 
+**Navbar:** every page renders `ReusedComponents/Navbar` itself: `variant="dark"` (default, green) or `"light"` (cream, used by `/account`). It's sticky, with a Products dropdown, an active-route dot, a cart badge, and below 56rem a hamburger that opens a full-width menu.
+
 **Cart buttons:** `ReusedComponents/CartButton/CartButton.jsx` adds an item (defaulting to Medium and Ivory), then disables itself and shows a `QuantityStepper` bound to that cart line. It's built on `useCartLine(product, options)`, which `ProductHero` also uses directly.
 
 **Conventions:**
@@ -67,6 +69,6 @@ No tests are configured. The Supabase CLI isn't linked on this machine, so new m
 - Fraunces (display) and Inter (body) load from Google Fonts in `index.html`.
 - Write `font-size` in `rem` (16px base).
 - Static decorative images are WebP files imported from folders next to their component. Product photos live only in the storage bucket, also as WebP, with older PNGs kept there for existing order snapshots. Convert new images to WebP before adding them.
-- Store contact details (phone, email, address, hours) live in `app/utils/storeInfo.js`, and pricing rules in `app/utils/cart.js`. Pages should import them rather than hard-code them.
+- Store contact details (phone, email, address, hours) and the guarantee and returns windows (`GUARANTEE_DAYS`, `RETURN_DAYS`, both 14) live in `app/utils/storeInfo.js`, and pricing rules in `app/utils/cart.js`. Pages should import them rather than hard-code them.
 - The `--hm-*` design tokens are defined on `:root` in `src/styles/base.css`. The shared `hm-*` utility classes (`hm-container`, `hm-title`, `hm-button` and so on) live in the eagerly loaded home page CSS and are reused by the Contact and FAQ pages and `HomeFooter`.
 - Imports must match file-name case exactly.

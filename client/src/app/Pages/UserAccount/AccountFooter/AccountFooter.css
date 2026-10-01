@@ -25,7 +25,7 @@
 .account-footer-logo {
   display: inline-block;
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 2.625rem;
   font-weight: 400;
   letter-spacing: -2px;
@@ -40,8 +40,8 @@
 .account-footer-brand > p {
   margin: 22px 0 25px;
   color: rgba(255, 255, 255, 0.55);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   line-height: 1.8;
 }
 
@@ -50,8 +50,8 @@
   align-items: center;
   gap: 7px;
   color: rgba(255, 255, 255, 0.65);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
 }
 
 .account-footer-location svg {
@@ -73,8 +73,8 @@
 .account-footer-column-title {
   margin: 4px 0 20px;
   color: rgba(255, 255, 255, 0.35);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1.8px;
 }
@@ -82,8 +82,8 @@
 .account-footer-column a {
   margin-bottom: 12px;
   color: rgba(255, 255, 255, 0.68);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   text-decoration: none;
   transition: color 0.25s ease;
 }
@@ -110,15 +110,15 @@
 .account-footer-newsletter-content p {
   margin: 0 0 10px;
   color: rgba(255, 255, 255, 0.35);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1.8px;
 }
 
 .account-footer-newsletter-content h2 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 2.125rem;
   font-weight: 400;
   letter-spacing: -1.5px;
@@ -134,8 +134,8 @@
   display: block;
   margin-top: 12px;
   color: rgba(255, 255, 255, 0.48);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   line-height: 1.7;
 }
 
@@ -170,8 +170,8 @@
   outline: 0;
   color: #ffffff;
   background: transparent;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
 }
 
 .account-footer-input input::placeholder {
@@ -189,8 +189,8 @@
   border-radius: 999px;
   color: #173f30;
   background: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -214,8 +214,8 @@
   align-items: center;
   gap: 7px;
   color: rgba(255, 255, 255, 0.55);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   text-decoration: none;
 }
 
@@ -243,8 +243,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   color: rgba(255, 255, 255, 0.6);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -266,8 +266,8 @@
 .account-footer-bottom p {
   margin: 0;
   color: rgba(255, 255, 255, 0.3);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
 }
 
 .account-footer-bottom > div {
@@ -278,8 +278,8 @@
 
 .account-footer-bottom > div a {
   color: rgba(255, 255, 255, 0.38);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   text-decoration: none;
 }
 
@@ -290,8 +290,8 @@
 .account-footer-made {
   justify-self: end;
   color: rgba(255, 255, 255, 0.3);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-display);
+  font-size: 0.8125rem;
   font-style: italic;
 }
 

@@ -8,6 +8,10 @@ export const STORE = {
   hours: "Open every day, 11am – 5:30pm",
 };
 
+// Healthy-plant guarantee and returns window, in days.
+export const GUARANTEE_DAYS = 14;
+export const RETURN_DAYS = 14;
+
 export const STORE_ADDRESS = STORE.addressLines.join(", ");
 
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(STORE_ADDRESS)}&output=embed`;
