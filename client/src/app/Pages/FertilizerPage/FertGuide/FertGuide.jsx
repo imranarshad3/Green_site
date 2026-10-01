@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../FertilizerImages/shopimage.png";
+import image from "../FertilizerImages/shopimage.webp";
 import "./FertGuide.css";
 
 function FertGuide() {

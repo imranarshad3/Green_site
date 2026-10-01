@@ -5,3 +5,25 @@
   margin: 0;
   padding: 0;
 }
+
+/* Shown while a page's code chunk loads; keeps the screen from flashing. */
+.page-loading {
+  min-height: 100vh;
+  background: #f7f5ee;
+}
+
+/* Design tokens for the hm-* components (home page, footer, contact and
+   FAQ pages). */
+:root {
+  --hm-green: #005c52;
+  --hm-green-deep: #0d3b31;
+  --hm-ink: #173f30;
+  --hm-muted: rgba(23, 63, 48, 0.68);
+  --hm-line: rgba(23, 63, 48, 0.12);
+  --hm-cream: #f7f5ee;
+  --hm-sand: #eee9dc;
+  --hm-accent: #d06a43;
+  --hm-radius: 1.25rem;
+  --hm-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --hm-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}

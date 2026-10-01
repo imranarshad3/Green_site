@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./SeasonalCare.css";
-import image from "./image/image.png";
+import image from "./image/image.webp";
 
 function SeasonalCare() {
   return (

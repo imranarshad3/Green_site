@@ -150,7 +150,9 @@
   padding: 22px 22px 25px;
 }
 
-.product-category {
+/* Product cards default to light text for the dark products page; search
+   results sit on a light background. */
+.search-products .product-category {
   margin: 0 0 9px;
   color: #718078;
   font-size: 0.625rem;
@@ -168,7 +170,7 @@
   line-height: 1.2;
 }
 
-.product-price {
+.search-products .product-price {
   margin: 0;
   color: #173e33;
   font-size: 0.875rem;

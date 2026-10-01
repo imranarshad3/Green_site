@@ -76,7 +76,7 @@
   transform: scale(1.04);
 }
 
-.product-info {
+.ph-info {
   width: 100%;
   min-width: 0;
   padding-top: 15px;
@@ -84,8 +84,8 @@
   flex-direction: column;
 }
 
-.product-category {
-  margin: 0 0 17px;
+.ph-category {
+  margin: 0 0 6px;
   color: #648071;
   font-size: 0.75rem;
   font-weight: 600;
@@ -94,7 +94,7 @@
   text-align: left;
 }
 
-.product-info h1 {
+.ph-info h1 {
   margin: 0;
   color: #18372d;
   font-family: Georgia, serif;
@@ -104,7 +104,7 @@
   text-align: left;
 }
 
-.product-rating {
+.ph-rating {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -133,12 +133,12 @@
   font-size: 0.8125rem;
 }
 
-.product-price {
+.ph-price {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 13px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .current-price {
@@ -248,18 +248,18 @@
   margin-top: 27px;
 }
 
-.quantity-control {
+.ph-quantity {
   height: 50px;
   display: flex;
   align-items: center;
   border: 1px solid #d2d8d1;
-  border-radius: 7px;
+  border-radius: 999px;
   background: #ffffff;
   overflow: hidden;
   flex-shrink: 0;
 }
 
-.quantity-control button {
+.ph-quantity button {
   width: 39px;
   height: 100%;
   padding: 0;
@@ -272,11 +272,11 @@
   justify-content: center;
 }
 
-.quantity-control button:hover {
+.ph-quantity button:hover {
   background: #f0f3ed;
 }
 
-.quantity-control span {
+.ph-quantity span {
   min-width: 28px;
   text-align: center;
   color: #18372d;
@@ -402,11 +402,11 @@
     height: 540px;
   }
 
-  .product-info {
+  .ph-info {
     padding-top: 5px;
   }
 
-  .product-info h1 {
+  .ph-info h1 {
     font-size: 2.375rem;
   }
 }
@@ -429,11 +429,11 @@
     height: 560px;
   }
 
-  .product-info {
+  .ph-info {
     padding-top: 0;
   }
 
-  .product-info h1 {
+  .ph-info h1 {
     font-size: 2.5rem;
   }
 
@@ -472,15 +472,15 @@
     order: 1;
   }
 
-  .product-info h1 {
+  .ph-info h1 {
     font-size: 2.25rem;
   }
 
-  .product-rating {
+  .ph-rating {
     flex-wrap: wrap;
   }
 
-  .product-price {
+  .ph-price {
     margin-top: 20px;
   }
 
@@ -496,11 +496,11 @@
     flex-wrap: wrap;
   }
 
-  .quantity-control {
+  .ph-quantity {
     width: 100%;
   }
 
-  .quantity-control button {
+  .ph-quantity button {
     flex: 1;
   }
 
@@ -534,20 +534,20 @@
     border-radius: 6px;
   }
 
-  .product-info h1 {
+  .ph-info h1 {
     font-size: 2rem;
   }
 
-  .product-category {
+  .ph-category {
     font-size: 0.625rem;
     letter-spacing: 1.3px;
   }
 
-  .product-rating {
+  .ph-rating {
     gap: 6px;
   }
 
-  .product-price {
+  .ph-price {
     gap: 9px;
   }
 
@@ -597,7 +597,7 @@
     height: 64px;
   }
 
-  .product-info h1 {
+  .ph-info h1 {
     font-size: 1.8125rem;
   }
 
@@ -612,7 +612,7 @@
 }
 
 /* Highlights the quantity control while it edits the cart line. */
-.productactions .quantity-control.is-in-cart {
+.productactions .ph-quantity.is-in-cart {
   border-color: #2f6b57;
   box-shadow: 0 0 0 1px #2f6b57;
 }

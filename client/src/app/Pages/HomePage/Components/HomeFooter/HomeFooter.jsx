@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HomeFooter.css";
+import { STORE } from "../../../../utils/storeInfo";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -18,6 +19,8 @@ const COLUMNS = [
     links: [
       { to: "/guide", label: "Plant care guide" },
       { to: "/fertilizers", label: "Feeding routine" },
+      { to: "/faq", label: "FAQ" },
+      { to: "/contact", label: "Contact us" },
     ],
   },
   {
@@ -42,7 +45,7 @@ function HomeFooter() {
               Thoughtfully grown plants for beautiful spaces.
             </p>
             <p className="hm-footer-contact">
-              0300 1223344 · order@platify.co
+              {STORE.phone} · {STORE.email}
             </p>
           </div>
 
@@ -60,7 +63,7 @@ function HomeFooter() {
 
         <div className="hm-footer-bottom">
           <p>© {CURRENT_YEAR} Plantify Garden. All rights reserved.</p>
-          <p>Gulberg III, Lahore</p>
+          <p>{STORE.addressLines[0]}</p>
         </div>
       </div>
     </footer>

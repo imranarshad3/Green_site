@@ -1,6 +1,6 @@
 import React from "react";
 import "./GuideLight.css";
-import lightimage from "./Lightimage.png"
+import lightimage from "./Lightimage.webp"
 
 function GuideLight() {
   return (

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-import stand1 from "./plantstands/stand1.png";
-import stand2 from "./plantstands/stand2.png";
-import stand3 from "./plantstands/stand3.png";
+import stand1 from "./plantstands/stand1.webp";
+import stand2 from "./plantstands/stand2.webp";
+import stand3 from "./plantstands/stand3.webp";
 import "./Plantstand.css";
 
 const STANDS = [

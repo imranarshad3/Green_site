@@ -1,7 +1,7 @@
-import newArrival1 from "./Images/newArrival1.png"
-import newArrival2 from "./Images/newArrival2.png"
-import newArrival3 from "./Images/newArrival3.png"
-import newArrival4 from "./Images/newArrival4.png"
+import newArrival1 from "./Images/newArrival1.webp"
+import newArrival2 from "./Images/newArrival2.webp"
+import newArrival3 from "./Images/newArrival3.webp"
+import newArrival4 from "./Images/newArrival4.webp"
 
 export const newArrivals = [
     {

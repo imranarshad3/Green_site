@@ -1,7 +1,6 @@
 import { Clock, MapPin, Navigation } from "lucide-react";
 import "./Location.css";
-
-const ADDRESS = "69-C, Block C3, Gulberg III, Lahore, Punjab, Pakistan";
+import { DIRECTIONS_URL, MAP_EMBED_URL, STORE } from "../../../../utils/storeInfo";
 
 function Location() {
   return (
@@ -10,7 +9,7 @@ function Location() {
         <div className="hm-location-map">
           <iframe
             title="Map showing the Plantify studio"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`}
+            src={MAP_EMBED_URL}
             loading="lazy"
             allowFullScreen
           />
@@ -26,19 +25,19 @@ function Location() {
             <li>
               <MapPin size={18} strokeWidth={1.6} />
               <span>
-                69-C, Block C3, Gulberg III
+                {STORE.addressLines[0]}
                 <br />
-                Lahore, Punjab, Pakistan
+                {STORE.addressLines[1]}
               </span>
             </li>
             <li>
               <Clock size={18} strokeWidth={1.6} />
-              <span>Open every day, 11am – 5:30pm</span>
+              <span>{STORE.hours}</span>
             </li>
           </ul>
 
           <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`}
+            href={DIRECTIONS_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hm-button hm-button--dark"

@@ -1,24 +1,29 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./app/Pages/HomePage/HomePage";
-import ProductsPage from "./app/Pages/ProductsPage/ProductsPage";
-import ProductDetails from "./app/Pages/ProductDetails/ProductDetails";
-import FertilizerPage from "./app/Pages/FertilizerPage/FertilizerPage";
-import GuidePage from "./app/Pages/GuidePage/GuidePage";
-import CartPage from "./app/Pages/CartPage/CartPage";
-import SearchPage from "./app/Pages/SearchPage/SearchPage";
-
-import AuthPage from "./app/Pages/AuthPage/AuthPage";
 import ProtectedRoute from "./app/ReusedComponents/ProtectedRoute/ProtectedRoute";
-import OrdersPage from "./app/Pages/OrdersPage/OrdersPage";
-import WishlistPage from "./app/Pages/WishlistPage/WishlistPage";
-import UserAccount from "./app/Pages/UserAccount/UserAccount";
-import NotFoundPage from "./app/Pages/NotFoundPage/NotFoundPage";
-import AdminPage from "./app/Pages/AdminPage/AdminPage";
 import AdminRoute from "./app/ReusedComponents/AdminRoute/AdminRoute";
+import NotFoundPage from "./app/Pages/NotFoundPage/NotFoundPage";
+
+// Every page except the home page is its own chunk, loaded on first visit.
+const ProductsPage = lazy(() => import("./app/Pages/ProductsPage/ProductsPage"));
+const ProductDetails = lazy(() => import("./app/Pages/ProductDetails/ProductDetails"));
+const FertilizerPage = lazy(() => import("./app/Pages/FertilizerPage/FertilizerPage"));
+const GuidePage = lazy(() => import("./app/Pages/GuidePage/GuidePage"));
+const CartPage = lazy(() => import("./app/Pages/CartPage/CartPage"));
+const SearchPage = lazy(() => import("./app/Pages/SearchPage/SearchPage"));
+const AuthPage = lazy(() => import("./app/Pages/AuthPage/AuthPage"));
+const OrdersPage = lazy(() => import("./app/Pages/OrdersPage/OrdersPage"));
+const WishlistPage = lazy(() => import("./app/Pages/WishlistPage/WishlistPage"));
+const UserAccount = lazy(() => import("./app/Pages/UserAccount/UserAccount"));
+const AdminPage = lazy(() => import("./app/Pages/AdminPage/AdminPage"));
+const ContactPage = lazy(() => import("./app/Pages/ContactPage/ContactPage"));
+const FaqPage = lazy(() => import("./app/Pages/FaqPage/FaqPage"));
 
 function App() {
   return (
     <BrowserRouter>
+      <Suspense fallback={<div className="page-loading" aria-busy="true" />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
@@ -53,6 +58,9 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/shipping" element={<Navigate to="/faq#delivery" replace />} />
         <Route path="/accounts" element={<Navigate to="/account" replace />} />
         <Route
           path="/admin"
@@ -64,6 +72,7 @@ function App() {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

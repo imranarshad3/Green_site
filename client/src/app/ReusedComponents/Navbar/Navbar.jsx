@@ -7,7 +7,7 @@ import {
   SignedOut,
   SignInButton,
 } from "@clerk/clerk-react";
-import icon from "./Images/icon.png";
+import icon from "./Images/icon.webp";
 import { useCart } from "../../Context/CartContext";
 import "./Navbar.css";
 

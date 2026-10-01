@@ -1,5 +1,5 @@
 import React from "react";
-import heroimage from "../FertilizerImages/Heroimage.png"
+import heroimage from "../FertilizerImages/Heroimage.webp"
 import "./FertHero.css";
 
 function FertHero() {
