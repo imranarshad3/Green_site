@@ -1,5 +1,7 @@
 import React from 'react'
 import "./FertQoute.css";
+import { Link } from 'react-router-dom';
+
 
 function FertQoute() {
   return (
@@ -14,9 +16,9 @@ function FertQoute() {
                     Beautiful growth.
                 </h2>
 
-                <button className="fert-button-light">
+                <Link to = "/guide" className="fert-button-light">
                     Explore plant guide
-                </button>
+                </Link>
             </div>
         </div>
   )

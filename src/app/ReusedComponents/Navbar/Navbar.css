@@ -54,7 +54,12 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
+}
+
+.icon-action{
+  align-items: center;
   color: #ffffff;
+
 }
 
 .actions svg {
@@ -64,10 +69,6 @@
   cursor: pointer;
 }
 
-
-/* =========================
-   TABLET
-========================= */
 
 @media (max-width: 48rem) {
   .navbar-section {
@@ -101,9 +102,7 @@
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+
 
 @media (max-width: 38rem) {
   .navbar-section {
@@ -143,10 +142,6 @@
   }
 }
 
-
-/* =========================
-   SMALL MOBILE
-========================= */
 
 @media (max-width: 24rem) {
   .navbar-section {

@@ -27,4 +27,4 @@ function Guidepage() {
   )
 }
 
-export default Guidepage
+export default Guidepage;

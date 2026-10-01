@@ -1,0 +1,17 @@
+.wishlist-page {
+  min-height: 100vh;
+  background: #faf9f5;
+  color: #173e33;
+}
+
+.wishlist-main {
+  min-height: 70vh;
+  padding-bottom: 110px;
+}
+
+@media (max-width: 700px) {
+  .wishlist-main {
+    padding-bottom: 70px;
+  }
+}
+

@@ -1,12 +1,14 @@
 import React from 'react';
-import img1 from "../FertilizerImages/Leafbloom.png" // Update your image paths accordingly
+import img1 from "../FertilizerImages/Leafbloom.png" 
 import img2 from "../FertilizerImages/Rootrevival.png";
 import img3 from "../FertilizerImages/Balancedgrowth.png";
+import { Link } from "react-router-dom";
 
 import "./FertShop.css"
 
-const products = [
+const Fertilizer = [
   {
+    id : 1,
     category: "Bestseller",
     name: "Balanced Growth",
     desc: "For foliage and everyday growth.",
@@ -14,6 +16,7 @@ const products = [
     image: img1,
   },
   {
+    id : 2,
     category: "Root Care",
     name: "Root Revival",
     desc: "For stronger, healthier roots.",
@@ -21,6 +24,7 @@ const products = [
     image: img2,
   },
   {
+    id : 3,
     category: "New Formula",
     name: "Leaf & Bloom",
     desc: "For vibrant foliage and flowers.",
@@ -44,7 +48,9 @@ function FertCard({ product }) {
 
       <div className="fert-shop-card-bottom">
         <p className="fert-price">{product.price}</p>
-        <a href="#view">View product</a>
+        <Link to={`/products/fertilizer/${product.id}`}>
+  View product
+</Link>
       </div>
     </div>
   );
@@ -64,7 +70,7 @@ function FertShop() {
         </p>
 
         <div className="fert-shop-grid">
-          {products.map((product) => (
+          {Fertilizer.map((product) => (
             <div className="fert-shop-product" key={product.name}>
               <FertCard product={product} />
             </div>

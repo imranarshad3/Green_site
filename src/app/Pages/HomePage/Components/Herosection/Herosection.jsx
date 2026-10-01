@@ -5,6 +5,7 @@ import "./Herosection.css";
 import plantImage from "./Images/plant.png";
 import cactusImage from "./Images/cactus.png";
 import flowerImage from "./Images/flower.png";
+import { Link } from "react-router-dom";
 
 function Herosection() {
   return (
@@ -26,14 +27,16 @@ function Herosection() {
           </p>
 
           <div className="hero-buttons">
+            <Link to = "/products" >
             <button className="shop-btn">
               Shop now
             </button>
+            </Link>
 
-            <button className="explore-btn">
+            <Link to = "/products" className="explore-btn">
               <span>Explore plants</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
           </div>
         </div>
 

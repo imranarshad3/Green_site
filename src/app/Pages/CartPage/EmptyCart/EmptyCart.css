@@ -1,0 +1,139 @@
+.empty-cart {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 60px;
+  box-sizing: border-box;
+  background: #f7f5ee;
+}
+
+.empty-cart-content {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-cart-icon {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(23, 63, 52, 0.15);
+  border-radius: 50%;
+  color: #173f34;
+  background: #eeeee6;
+}
+
+.empty-cart-eyebrow {
+  margin: 0 0 22px;
+  color: #d56b4b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.empty-cart h1 {
+  margin: 0;
+  color: #173f34;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 7vw, 86px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -3px;
+}
+
+.empty-cart-description {
+  max-width: 450px;
+  margin: 28px 0 36px;
+  color: #718079;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.empty-cart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 190px;
+  padding: 17px 27px;
+  box-sizing: border-box;
+  border: 1px solid #173f34;
+  border-radius: 30px;
+  background: #173f34;
+  color: #f7f5ee;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.empty-cart-button:hover {
+  background: transparent;
+  color: #173f34;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+  .empty-cart {
+    padding: 80px 20px 40px;
+  }
+
+  .empty-cart-icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 25px;
+  }
+
+  .empty-cart-eyebrow {
+    margin-bottom: 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .empty-cart h1 {
+    font-size: clamp(44px, 13vw, 62px);
+    letter-spacing: -2px;
+  }
+
+  .empty-cart-description {
+    max-width: 340px;
+    margin: 24px 0 30px;
+    font-size: 13px;
+  }
+
+  .empty-cart-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 380px) {
+  .empty-cart {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .empty-cart h1 {
+    font-size: 42px;
+  }
+
+  .empty-cart-description {
+    font-size: 12px;
+  }
+}
