@@ -9,7 +9,8 @@
     "reset": "supabase db reset && npm run seed",
     "seed": "node scripts/seed.js",
     "new-migration": "supabase migration new",
-    "upload-images": "node scripts/upload-images.js"
+    "upload-images": "node scripts/upload-images.js",
+    "build-setup": "node scripts/build-setup.js"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.58.0",

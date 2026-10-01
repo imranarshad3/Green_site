@@ -17,6 +17,8 @@ const OrdersPage = lazy(() => import("./app/Pages/OrdersPage/OrdersPage"));
 const WishlistPage = lazy(() => import("./app/Pages/WishlistPage/WishlistPage"));
 const UserAccount = lazy(() => import("./app/Pages/UserAccount/UserAccount"));
 const AdminPage = lazy(() => import("./app/Pages/AdminPage/AdminPage"));
+const ContactPage = lazy(() => import("./app/Pages/ContactPage/ContactPage"));
+const FaqPage = lazy(() => import("./app/Pages/FaqPage/FaqPage"));
 
 function App() {
   return (
@@ -56,6 +58,9 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/shipping" element={<Navigate to="/faq#delivery" replace />} />
         <Route path="/accounts" element={<Navigate to="/account" replace />} />
         <Route
           path="/admin"

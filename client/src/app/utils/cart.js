@@ -1,7 +1,7 @@
 export const FREE_DELIVERY_MIN = 50;
 export const DELIVERY_FEE = 6;
-const DISCOUNT_MIN = 60;
-const DISCOUNT_AMOUNT = 9;
+export const DISCOUNT_MIN = 60;
+export const DISCOUNT_AMOUNT = 9;
 
 export function getCartTotals(cartItems) {
   const subtotal = cartItems.reduce(

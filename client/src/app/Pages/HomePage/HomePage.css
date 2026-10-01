@@ -1,18 +1,6 @@
-/* Home page design tokens and shared section layout. Every home class is
-   prefixed "hm-" because all CSS in the app is global. */
+/* Home page layout. Every home class is prefixed "hm-" because all CSS in
+   the app is global; the --hm-* tokens live in src/styles/base.css. */
 .home {
-  --hm-green: #005c52;
-  --hm-green-deep: #0d3b31;
-  --hm-ink: #173f30;
-  --hm-muted: rgba(23, 63, 48, 0.68);
-  --hm-line: rgba(23, 63, 48, 0.12);
-  --hm-cream: #f7f5ee;
-  --hm-sand: #eee9dc;
-  --hm-accent: #d06a43;
-  --hm-radius: 1.25rem;
-  --hm-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --hm-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-
   background: #ffffff;
   color: var(--hm-ink);
   font-family: var(--hm-sans);

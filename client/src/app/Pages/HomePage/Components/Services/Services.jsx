@@ -1,6 +1,7 @@
 import { Mail, Phone } from "lucide-react";
 import "./Services.css";
 import background from "./Images/background.webp";
+import { STORE } from "../../../../utils/storeInfo";
 
 function Services() {
   return (
@@ -20,13 +21,13 @@ function Services() {
             </p>
 
             <div className="hm-services-contact">
-              <a href="tel:+923001223344">
+              <a href={STORE.phoneHref}>
                 <Phone size={17} strokeWidth={1.6} />
-                0300 1223344
+                {STORE.phone}
               </a>
-              <a href="mailto:order@platify.co">
+              <a href={`mailto:${STORE.email}`}>
                 <Mail size={17} strokeWidth={1.6} />
-                order@platify.co
+                {STORE.email}
               </a>
             </div>
           </div>

@@ -1,0 +1,136 @@
+.faq-page {
+  background: #ffffff;
+  color: var(--hm-ink);
+  font-family: var(--hm-sans);
+}
+
+html {
+  scroll-padding-top: 1.5rem;
+}
+
+.faq-header {
+  padding: 4.5rem 0 3rem;
+  background: var(--hm-cream);
+}
+
+.faq-title {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.faq-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 2rem;
+}
+
+.faq-jump a {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--hm-line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--hm-ink);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.faq-jump a:hover {
+  border-color: var(--hm-green);
+  color: var(--hm-green);
+}
+
+.faq-body {
+  max-width: 52rem;
+  padding-top: 3.5rem;
+  padding-bottom: 6rem;
+}
+
+.faq-section + .faq-section {
+  margin-top: 3.5rem;
+}
+
+.faq-section h2 {
+  margin-bottom: 1rem;
+  font-family: var(--hm-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--hm-line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary svg {
+  flex-shrink: 0;
+  color: var(--hm-muted);
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.faq-item summary:hover {
+  color: var(--hm-green);
+}
+
+.faq-answer {
+  padding: 0 2.5rem 1.5rem 0;
+  color: var(--hm-muted);
+  line-height: 1.7;
+}
+
+.faq-answer .hm-text-link {
+  margin-top: 0.875rem;
+}
+
+.faq-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 4.5rem;
+  padding: 2.5rem;
+  border-radius: calc(var(--hm-radius) * 1.5);
+  background: var(--hm-green);
+  color: #ffffff;
+}
+
+.faq-cta h2 {
+  font-family: var(--hm-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.faq-cta p {
+  margin-top: 0.375rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 560px) {
+  .faq-answer {
+    padding-right: 0;
+  }
+
+  .faq-cta {
+    padding: 2rem 1.5rem;
+  }
+}

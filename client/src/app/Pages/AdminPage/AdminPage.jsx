@@ -3,15 +3,24 @@ import React, { useState } from "react";
 import Navbar from "../../ReusedComponents/Navbar/Navbar";
 import AdminProducts from "./AdminProducts/AdminProducts";
 import AdminOrders from "./AdminOrders/AdminOrders";
+import AdminMessages from "./AdminMessages/AdminMessages";
 import "./AdminPage.css";
 
 const TABS = [
   { id: "products", label: "Products" },
   { id: "orders", label: "Orders" },
+  { id: "messages", label: "Messages" },
 ];
+
+const PANELS = {
+  products: AdminProducts,
+  orders: AdminOrders,
+  messages: AdminMessages,
+};
 
 function AdminPage() {
   const [tab, setTab] = useState("products");
+  const Panel = PANELS[tab];
 
   return (
     <div className="admin-page">
@@ -38,7 +47,7 @@ function AdminPage() {
           ))}
         </div>
 
-        {tab === "products" ? <AdminProducts /> : <AdminOrders />}
+        <Panel />
       </main>
     </div>
   );
