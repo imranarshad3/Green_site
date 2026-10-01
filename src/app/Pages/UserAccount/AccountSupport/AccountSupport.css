@@ -1,0 +1,601 @@
+.account-support-section {
+  width: 100%;
+  padding: 115px 6vw;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.account-support-container {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.account-support-hero {
+  min-height: 440px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  overflow: hidden;
+  border-radius: 30px;
+  background: #edf1e8;
+}
+
+.account-support-hero-content {
+  padding: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.account-support-kicker,
+.account-support-small-kicker {
+  margin: 0 0 16px;
+  color: #819087;
+  font-family: "Inter", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.account-support-hero h2 {
+  max-width: 650px;
+  margin: 0;
+  color: #173f30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -3px;
+  line-height: 0.94;
+}
+
+.account-support-hero h2 span {
+  color: #71867a;
+  font-style: italic;
+}
+
+.account-support-description {
+  max-width: 500px;
+  margin: 24px 0 0;
+  color: #6f7d75;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.account-support-hero-actions {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.account-support-primary-button,
+.account-support-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.account-support-primary-button {
+  padding: 13px 17px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #173f30;
+}
+
+.account-support-primary-button:hover {
+  transform: translateY(-2px);
+  background: #285440;
+}
+
+.account-support-secondary-button {
+  padding: 12px 16px;
+  color: #173f30;
+  border-bottom: 1px solid rgba(23, 63, 48, 0.25);
+}
+
+.account-support-secondary-button:hover {
+  border-color: #173f30;
+}
+
+.account-support-hero-art {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  background: #173f30;
+}
+
+.account-support-circle {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.circle-one {
+  width: 390px;
+  height: 390px;
+  right: -150px;
+  top: -100px;
+}
+
+.circle-two {
+  width: 270px;
+  height: 270px;
+  right: 20px;
+  bottom: -150px;
+}
+
+.account-support-art-leaf {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.account-support-art-card {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.account-support-art-card > svg {
+  color: #b8cfb9;
+}
+
+.account-support-art-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.account-support-art-card strong {
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+}
+
+.account-support-art-card span {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Inter", sans-serif;
+  font-size: 7px;
+}
+
+.account-support-options {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.account-support-option {
+  min-height: 215px;
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid rgba(23, 63, 48, 0.1);
+  border-radius: 25px;
+  background: #faf9f4;
+  text-decoration: none;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.account-support-option:hover {
+  transform: translateY(-5px);
+  background: #f3f5ef;
+  box-shadow: 0 20px 40px rgba(23, 63, 48, 0.07);
+}
+
+.account-support-option-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #173f30;
+  background: #e5ebe2;
+}
+
+.account-support-option-content h3 {
+  margin: 25px 0 8px;
+  color: #173f30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.account-support-option-content p {
+  max-width: 270px;
+  margin: 0;
+  color: #89938d;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+.account-support-option-content span {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #173f30;
+  font-family: "Inter", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.account-support-faq-section {
+  margin-top: 100px;
+}
+
+.account-support-faq-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.account-support-faq-heading h3 {
+  margin: 0;
+  color: #173f30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(35px, 4vw, 52px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.account-support-faq-heading h3 span {
+  color: #74897b;
+  font-style: italic;
+}
+
+.account-support-search {
+  width: 240px;
+  height: 42px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  border: 1px solid rgba(23, 63, 48, 0.12);
+  border-radius: 999px;
+  color: #87918b;
+  background: #faf9f4;
+}
+
+.account-support-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #173f30;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+}
+
+.account-support-search input::placeholder {
+  color: #a1a8a3;
+}
+
+.account-support-faq-list {
+  border-top: 1px solid rgba(23, 63, 48, 0.1);
+}
+
+.account-support-faq {
+  border-bottom: 1px solid rgba(23, 63, 48, 0.1);
+}
+
+.account-support-faq button {
+  width: 100%;
+  min-height: 72px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 0;
+  color: #314b3e;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.account-support-faq button svg {
+  color: #829088;
+  transition: transform 0.3s ease;
+}
+
+.account-support-faq.is-open button svg {
+  transform: rotate(90deg);
+}
+
+.account-support-faq-answer {
+  max-width: 650px;
+  padding: 0 40px 23px 0;
+  color: #89938d;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.account-support-no-results {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #89938d;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+}
+
+.account-support-contact {
+  margin-top: 80px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 25px;
+  color: #ffffff;
+  background: #173f30;
+}
+
+.account-support-contact-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.account-support-contact-content {
+  flex: 1;
+}
+
+.account-support-contact-content p {
+  margin: 0 0 7px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: "Inter", sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.account-support-contact-content h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.account-support-contact-content span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+}
+
+.account-support-contact-actions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.account-support-contact-actions a:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 15px;
+  border-radius: 999px;
+  color: #173f30;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.account-support-contact-actions a:last-child {
+  color: rgba(255, 255, 255, 0.55);
+  font-family: "Inter", sans-serif;
+  font-size: 8px;
+  text-decoration: none;
+}
+
+.account-support-footer {
+  margin-top: 25px;
+  padding-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(23, 63, 48, 0.1);
+}
+
+.account-support-footer div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #89938d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.account-support-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #173f30;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 950px) {
+  .account-support-section {
+    padding: 90px 5vw;
+  }
+
+  .account-support-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .account-support-hero-art {
+    min-height: 300px;
+  }
+
+  .account-support-options {
+    grid-template-columns: 1fr;
+  }
+
+  .account-support-option {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 700px) {
+  .account-support-section {
+    padding: 75px 20px;
+  }
+
+  .account-support-hero-content {
+    padding: 45px 30px;
+  }
+
+  .account-support-hero h2 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .account-support-hero-art {
+    min-height: 270px;
+  }
+
+  .account-support-art-leaf {
+    width: 140px;
+    height: 140px;
+  }
+
+  .account-support-faq-section {
+    margin-top: 75px;
+  }
+
+  .account-support-faq-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .account-support-search {
+    width: 100%;
+  }
+
+  .account-support-contact {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .account-support-contact-actions {
+    width: 100%;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .account-support-section {
+    padding: 65px 16px;
+  }
+
+  .account-support-hero-content {
+    padding: 38px 23px;
+  }
+
+  .account-support-hero h2 {
+    font-size: 42px;
+  }
+
+  .account-support-description {
+    font-size: 11px;
+  }
+
+  .account-support-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .account-support-primary-button,
+  .account-support-secondary-button {
+    justify-content: center;
+  }
+
+  .account-support-hero-art {
+    min-height: 230px;
+  }
+
+  .account-support-art-card {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .account-support-option {
+    min-height: 195px;
+    padding: 22px;
+  }
+
+  .account-support-faq-heading h3 {
+    font-size: 35px;
+  }
+
+  .account-support-contact {
+    padding: 24px;
+  }
+
+  .account-support-contact-content h3 {
+    font-size: 23px;
+  }
+
+  .account-support-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+

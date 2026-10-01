@@ -15,36 +15,32 @@ import ProtectedRoute from "./app/ReusedComponents/ProtectedRoute/ProtectedRoute
 import { SignedIn, RedirectToSignIn } from "@clerk/clerk-react";
 import OrdersPage from "./app/Pages/OrdersPage/OrdersPage";
 import WishlistPage from "./app/Pages/WishlistPage/WishListPage";
-
+import UserAccount from "./app/Pages/UserAccount/UserAccount";
 
 function App() {
-  
-  
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/products" element={<Productspage/>} />
-        <Route path="/product/:id" element={<ProductDetails/>} />
-        <Route path="/fertilizers" element = {<FertilizerPage />} />
-        <Route path="/guide" element = {<Guidepage />} />
-        <Route path="/cart" element = {<CartPage />} />
-        <Route path="/search" element = {<SearchPage  products = {products}/>} />
+        <Route path="/products" element={<Productspage />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/fertilizers" element={<FertilizerPage />} />
+        <Route path="/guide" element={<Guidepage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/search" element={<SearchPage products={products} />} />
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/wishlist" element = {<WishlistPage />} />
+        accounts <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/accounts" element={<UserAccount />} />
+        <Route path="/products/fertilizer/:id" element={<ProductDetails />} />
         <Route
-  path="/products/fertilizer/:id"
-  element={<ProductDetails />}
-/>
-        <Route
-  path="/account"
-  element={
-    <ProtectedRoute>
-      <AccountPage />
-    </ProtectedRoute>
-  }
-/>
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <AccountPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
