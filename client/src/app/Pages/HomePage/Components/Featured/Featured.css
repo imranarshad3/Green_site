@@ -1,0 +1,86 @@
+.hm-featured {
+  padding-top: 7rem;
+}
+
+.hm-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.hm-card-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hm-skeleton {
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #f1eee6 0%, #f8f6f0 50%, #f1eee6 100%);
+  background-size: 200% 100%;
+  animation: hm-shimmer 1.4s ease-in-out infinite;
+}
+
+.hm-skeleton-image {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--hm-radius);
+}
+
+.hm-skeleton-line {
+  height: 1rem;
+  width: 70%;
+}
+
+.hm-skeleton-line.short {
+  width: 40%;
+}
+
+@keyframes hm-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+.hm-featured-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 4rem 1.5rem;
+  border: 1px dashed var(--hm-line);
+  border-radius: var(--hm-radius);
+  background: var(--hm-cream);
+  color: var(--hm-muted);
+  text-align: center;
+}
+
+.hm-featured-empty-title {
+  color: var(--hm-ink);
+  font-family: var(--hm-display);
+  font-size: 1.5rem;
+}
+
+.hm-featured-empty .hm-text-link {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 1024px) {
+  .hm-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .hm-featured-grid {
+    gap: 1.75rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-skeleton {
+    animation: none;
+  }
+}

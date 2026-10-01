@@ -1,0 +1,65 @@
+.hm-stands {
+  background: var(--hm-cream);
+}
+
+.hm-stands-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hm-stands-intro .hm-text-link {
+  margin-top: 2rem;
+}
+
+.hm-stands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.hm-stand-image {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--hm-radius);
+  background: var(--hm-sand);
+}
+
+.hm-stand-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.hm-stand:hover .hm-stand-image img {
+  transform: scale(1.05);
+}
+
+.hm-stand figcaption {
+  margin-top: 0.875rem;
+  font-family: var(--hm-display);
+  font-size: 1.125rem;
+}
+
+@media (max-width: 960px) {
+  .hm-stands-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .hm-stands-grid {
+    grid-template-columns: repeat(3, minmax(9rem, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+  }
+
+  .hm-stand {
+    scroll-snap-align: start;
+  }
+}

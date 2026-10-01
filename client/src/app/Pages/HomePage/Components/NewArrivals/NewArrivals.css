@@ -1,0 +1,88 @@
+.hm-arrivals {
+  padding-bottom: 7rem;
+}
+
+.hm-arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.hm-arrival {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4.4;
+  border-radius: var(--hm-radius);
+  background: var(--hm-green-deep);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Staggered editorial rhythm. */
+.hm-arrival.is-offset {
+  transform: translateY(2.5rem);
+}
+
+.hm-arrival img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.hm-arrival::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(8, 30, 25, 0.7) 100%);
+}
+
+.hm-arrival:hover img {
+  transform: scale(1.06);
+}
+
+.hm-arrival-caption {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--hm-display);
+  font-size: 1.375rem;
+}
+
+.hm-arrival-caption svg {
+  transition: transform 0.3s ease;
+}
+
+.hm-arrival:hover .hm-arrival-caption svg {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 960px) {
+  .hm-arrivals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .hm-arrivals-grid {
+    gap: 1rem;
+  }
+
+  .hm-arrival.is-offset {
+    transform: translateY(1.5rem);
+  }
+
+  .hm-arrival-caption {
+    left: 0.875rem;
+    right: 0.875rem;
+    bottom: 0.875rem;
+    font-size: 1.125rem;
+  }
+}

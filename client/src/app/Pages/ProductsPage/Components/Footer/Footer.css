@@ -1,0 +1,80 @@
+.footer-section {
+  width: 100%;
+  color: #eee9dc;
+  box-sizing: border-box;
+  padding-top: 50px;
+}
+
+.footer-section .nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 50px 20px;
+  gap: 30px;
+}
+
+.footer-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section .logo {
+  margin-bottom: 15px;
+  color: #1f705f; /* Accent green color matching your theme icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-section .logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-section .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-section .content h3 {
+  margin: 0 0 8px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #eee9dc;
+  line-height: 1.2;
+}
+
+.footer-section .content p {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #74817b;
+  line-height: 1.2;
+}
+
+.footer-section .foot {
+  background-color: #090f0c; 
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #74817b;
+  border-top: 1px solid #151c19;
+}
+
+@media (max-width: 768px) {
+  .footer-section .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}

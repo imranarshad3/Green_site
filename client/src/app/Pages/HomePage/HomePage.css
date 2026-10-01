@@ -1,0 +1,105 @@
+/* Home page design tokens and shared section layout. Every home class is
+   prefixed "hm-" because all CSS in the app is global. */
+.home {
+  --hm-green: #005c52;
+  --hm-green-deep: #0d3b31;
+  --hm-ink: #173f30;
+  --hm-muted: rgba(23, 63, 48, 0.68);
+  --hm-line: rgba(23, 63, 48, 0.12);
+  --hm-cream: #f7f5ee;
+  --hm-sand: #eee9dc;
+  --hm-accent: #d06a43;
+  --hm-radius: 1.25rem;
+  --hm-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --hm-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  background: #ffffff;
+  color: var(--hm-ink);
+  font-family: var(--hm-sans);
+}
+
+.hm-container {
+  width: 100%;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.hm-section {
+  padding: 6rem 0;
+}
+
+.hm-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.75rem;
+}
+
+.hm-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.875rem;
+  color: var(--hm-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hm-title {
+  font-family: var(--hm-display);
+  font-size: clamp(2.125rem, 4vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.hm-title em {
+  font-style: italic;
+  color: var(--hm-green);
+}
+
+.hm-lead {
+  max-width: 34rem;
+  margin-top: 1rem;
+  color: var(--hm-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.hm-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--hm-ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.hm-text-link:hover {
+  gap: 0.75rem;
+  color: var(--hm-green);
+}
+
+@media (max-width: 768px) {
+  .hm-container {
+    padding: 0 1.25rem;
+  }
+
+  .hm-section {
+    padding: 4rem 0;
+  }
+
+  .hm-section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}

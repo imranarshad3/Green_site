@@ -1,0 +1,7 @@
+/* Global reset. Every page's styles assume it (it used to live in
+   HomePage.css, but because all CSS is bundled together it always applied
+   site-wide). */
+* {
+  margin: 0;
+  padding: 0;
+}

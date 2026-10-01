@@ -1,0 +1,76 @@
+.wishlist-toolbar {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 0 24px 25px;
+
+  border-bottom: 1px solid rgba(23, 62, 51, 0.1);
+}
+
+.wishlist-toolbar-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.wishlist-toolbar p {
+  margin: 0;
+
+  color: #75837c;
+
+  font-size: 0.8125rem;
+}
+
+.wishlist-toolbar p strong {
+  color: #173e33;
+}
+
+.wishlist-sort {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 0.8125rem;
+}
+
+.wishlist-sort span {
+  color: #8a958f;
+}
+
+.wishlist-sort select {
+  padding: 8px 30px 8px 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #173e33;
+
+  font-size: 0.8125rem;
+
+  cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .wishlist-toolbar-inner {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .wishlist-sort {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+}
+

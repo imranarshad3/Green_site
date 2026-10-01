@@ -1,0 +1,85 @@
+.hm-services {
+  padding-bottom: 0;
+}
+
+.hm-services-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 26rem;
+  display: flex;
+  align-items: center;
+  border-radius: calc(var(--hm-radius) * 1.5);
+  background: #e9c5b9;
+}
+
+.hm-services-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.hm-services-content {
+  position: relative;
+  max-width: 32rem;
+  padding: 3.5rem;
+}
+
+.hm-services-content .hm-eyebrow {
+  color: #8a3f26;
+}
+
+.hm-services-content .hm-title em {
+  color: #8a3f26;
+}
+
+.hm-services-content .hm-lead {
+  color: rgba(23, 63, 48, 0.78);
+}
+
+.hm-services-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hm-services-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.125rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--hm-ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.hm-services-contact a:hover {
+  background: #ffffff;
+}
+
+/* Phones: text on top, the photo as its own strip underneath. */
+@media (max-width: 768px) {
+  .hm-services-banner {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .hm-services-image {
+    position: static;
+    order: 2;
+    height: 14rem;
+    object-position: 85% center;
+  }
+
+  .hm-services-content {
+    padding: 2.25rem 1.5rem 1.5rem;
+  }
+}

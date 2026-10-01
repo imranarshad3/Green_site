@@ -1,0 +1,18 @@
+{
+  "name": "plantify-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "supabase start",
+    "stop": "supabase stop",
+    "status": "supabase status",
+    "reset": "supabase db reset && npm run seed",
+    "seed": "node scripts/seed.js",
+    "new-migration": "supabase migration new",
+    "upload-images": "node scripts/upload-images.js"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "supabase": "^2.119.0"
+  }
+}

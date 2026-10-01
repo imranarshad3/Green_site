@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.pagination-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #555d59; /* Default gray circle color matching your design */
+  color: #eee9dc;
+  font-family: Arial, sans-serif;
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #6a736f;
+}
+
+/* Active page style (Dark green matching your theme) */
+.pagination-btn.active {
+  background: #174d40;
+  color: #eee9dc;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

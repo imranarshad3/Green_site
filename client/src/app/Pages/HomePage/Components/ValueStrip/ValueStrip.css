@@ -1,0 +1,71 @@
+/* Floats over the bottom edge of the hero. */
+.hm-values {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: -4.5rem;
+  border-radius: var(--hm-radius);
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(13, 59, 49, 0.12);
+  list-style: none;
+}
+
+.hm-value {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 1.5rem;
+}
+
+.hm-value + .hm-value {
+  border-left: 1px solid var(--hm-line);
+}
+
+.hm-value-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--hm-cream);
+  color: var(--hm-green);
+}
+
+.hm-value-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.hm-value-text {
+  margin-top: 0.125rem;
+  color: var(--hm-muted);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 960px) {
+  .hm-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hm-value:nth-child(3) {
+    border-left: none;
+  }
+
+  .hm-value:nth-child(n + 3) {
+    border-top: 1px solid var(--hm-line);
+  }
+}
+
+@media (max-width: 560px) {
+  .hm-values {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hm-value + .hm-value {
+    border-left: none;
+    border-top: 1px solid var(--hm-line);
+  }
+}

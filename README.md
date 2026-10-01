@@ -1,16 +1,40 @@
-# React + Vite
+# Plantify
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A full-stack plant shop:
 
-Currently, two official plugins are available:
+- **`client/`**: React 19, Vite and React Router, with sign-in through [Clerk](https://clerk.com).
+- **`server/`**: a [Supabase](https://supabase.com) project, containing the Postgres schema, row-level security, the checkout function, seed data and the product-image storage bucket.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Setup
 
-## React Compiler
+1. **Install dependencies:** `npm install`
+2. **Configure the client.** Create `client/.env` with:
+   ```
+   VITE_CLERK_PUBLISHABLE_KEY=pk_test_...
+   VITE_SUPABASE_URL=https://<project-ref>.supabase.co
+   VITE_SUPABASE_ANON_KEY=<publishable key>
+   ```
+3. **Connect Clerk to Supabase.**
+   - In the Clerk dashboard: **Integrations → Supabase → Activate**.
+   - In the Supabase dashboard: **Authentication → Third-Party Auth → Add Clerk**, using your Clerk domain.
+4. **Create the database and upload the product images:**
+   ```bash
+   cd server
+   npx supabase login
+   npx supabase link --project-ref <project-ref>
+   npx supabase db push --include-seed
+   npx supabase seed buckets --linked
+   ```
+5. **Make yourself an admin.** In the Supabase SQL editor, run:
+   ```sql
+   insert into admins (user_id) values ('<your Clerk user id>');
+   ```
+6. **Run the app:** `npm run dev -w client`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| Command | What it does |
+| --- | --- |
+| `npm run dev -w client` | Start the Vite dev server |
+| `npm run build` | Build the client for production |
+| `npm run lint` | Lint the client with oxlint |
