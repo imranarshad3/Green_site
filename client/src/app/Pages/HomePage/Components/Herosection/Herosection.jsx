@@ -3,9 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Herosection.css";
 
-import plantImage from "./Images/plant.png";
-import cactusImage from "./Images/cactus.png";
-import flowerImage from "./Images/flower.png";
+import plantImage from "./Images/plant.webp";
+import cactusImage from "./Images/cactus.webp";
+import flowerImage from "./Images/flower.webp";
 
 function Herosection() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import "./GuideHero.css"
-import heroimage from "./heroimage.png"
+import heroimage from "./heroimage.webp"
 
 function GuideHero() {
   return (

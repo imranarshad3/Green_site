@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductStory.css";
-import image from "./image.png";
+import image from "./image.webp";
 
 function ProductStory({ product }) {
   const features = [

@@ -102,15 +102,15 @@ const ProductHero = ({ product }) => {
           </div>
         </div>
 
-        <div className="product-info">
-          <p className="product-category">
+        <div className="ph-info">
+          <p className="ph-category">
             {product?.category}
           </p>
 
           <h1>{product?.name}</h1>
 
           {product?.rating && (
-          <div className="product-rating">
+          <div className="ph-rating">
             <span className="stars">
               {"★".repeat(Math.floor(product?.rating || 5))}
               {"☆".repeat(5 - Math.floor(product?.rating || 5))}
@@ -128,7 +128,7 @@ const ProductHero = ({ product }) => {
           </div>
           )}
 
-          <div className="product-price">
+          <div className="ph-price">
             <span className="current-price">
               ${product?.price}
             </span>
@@ -203,7 +203,7 @@ const ProductHero = ({ product }) => {
           )}
 
           <div className="productactions">
-            <div className={`quantity-control ${inCart ? "is-in-cart" : ""}`}>
+            <div className={`ph-quantity ${inCart ? "is-in-cart" : ""}`}>
               <button
                 type="button"
                 onClick={decreaseQuantity}

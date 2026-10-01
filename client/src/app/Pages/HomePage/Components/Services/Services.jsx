@@ -1,6 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import "./Services.css";
-import background from "./Images/background.png";
+import background from "./Images/background.webp";
 
 function Services() {
   return (

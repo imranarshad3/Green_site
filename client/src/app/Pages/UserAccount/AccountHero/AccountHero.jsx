@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import React from "react";
 import { useUser } from "@clerk/clerk-react";
 import "./AccountHero.css";
-import heroimage from "./images/hero1.png"
+import heroimage from "./images/hero1.webp"
 
 function AccountHero() {
   const { user } = useUser();
