@@ -1,12 +1,13 @@
 import React from "react";
 import { BookOpen, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import "./ValueStrip.css";
+import { GUARANTEE_DAYS, RETURN_DAYS } from "../../../../utils/storeInfo";
 
 // Promises already made elsewhere in the store (cart, product page, guide).
 const VALUES = [
   { Icon: Truck, title: "Free delivery", text: "On orders over $50" },
-  { Icon: ShieldCheck, title: "Plant guarantee", text: "30-day healthy plant promise" },
-  { Icon: RotateCcw, title: "Easy returns", text: "Hassle-free within 14 days" },
+  { Icon: ShieldCheck, title: "Plant guarantee", text: `${GUARANTEE_DAYS}-day healthy plant promise` },
+  { Icon: RotateCcw, title: "Easy returns", text: `Hassle-free within ${RETURN_DAYS} days` },
   { Icon: BookOpen, title: "Care guidance", text: "Simple guides for every plant" },
 ];
 

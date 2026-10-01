@@ -49,7 +49,6 @@ function UserMenu() {
 
         <ChevronDown
           size={16}
-          style={{color : "white"}}
           className={isOpen ? "rotate-icon" : ""}
         />
       </button>

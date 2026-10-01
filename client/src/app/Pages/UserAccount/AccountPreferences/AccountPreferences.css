@@ -21,8 +21,8 @@
 .account-preferences-kicker {
   margin: 0 0 15px;
   color: #89958d;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2.3px;
   text-transform: uppercase;
@@ -31,7 +31,7 @@
 .account-preferences-heading h2 {
   margin: 0;
   color: #173f30;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: clamp(2.8125rem, 5vw, 4.375rem);
   font-weight: 400;
   letter-spacing: -3px;
@@ -47,8 +47,8 @@
   max-width: 500px;
   margin: 22px 0 0;
   color: #748078;
-  font-family: "Inter", sans-serif;
-  font-size: 0.8125rem;
+  font-family: var(--hm-sans);
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -61,8 +61,8 @@
   border-radius: 999px;
   color: #ffffff;
   background: #173f30;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -116,7 +116,7 @@
 .account-preference-group-heading h3 {
   margin: 0;
   color: #173f30;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 1.5rem;
   font-weight: 400;
 }
@@ -124,8 +124,8 @@
 .account-preference-group-heading p {
   margin: 6px 0 0;
   color: #89938d;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
 }
 
 .account-preference-list {
@@ -183,15 +183,15 @@
 
 .account-preference-toggle-content strong {
   color: #314b3e;
-  font-family: "Inter", sans-serif;
-  font-size: 0.6875rem;
+  font-family: var(--hm-sans);
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
 .account-preference-toggle-content span {
   color: #929b95;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   line-height: 1.5;
 }
 
@@ -238,8 +238,8 @@
   border-radius: 999px;
   color: #758078;
   background: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   cursor: pointer;
   transition:
     color 0.25s ease,
@@ -310,8 +310,8 @@
   z-index: 2;
   margin: 25px 0 10px;
   color: rgba(255, 255, 255, 0.48);
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1.8px;
 }
@@ -321,7 +321,7 @@
   z-index: 2;
   margin: 0;
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--hm-display);
   font-size: 1.8125rem;
   font-weight: 400;
   line-height: 1.05;
@@ -341,8 +341,8 @@
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.55);
   background: transparent;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -369,15 +369,15 @@
 
 .account-preferences-note strong {
   color: #314b3e;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
 }
 
 .account-preferences-note p {
   margin: 5px 0 0;
   color: #89938d;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   line-height: 1.5;
 }
 
@@ -393,8 +393,8 @@
 .account-preferences-footer p {
   margin: 0;
   color: #89938d;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.8125rem;
+  font-family: var(--hm-display);
+  font-size: 0.875rem;
   font-style: italic;
 }
 
@@ -406,8 +406,8 @@
   border: 0;
   color: #65736b;
   background: transparent;
-  font-family: "Inter", sans-serif;
-  font-size: 0.625rem;
+  font-family: var(--hm-sans);
+  font-size: 0.8125rem;
   cursor: pointer;
 }
 
@@ -480,11 +480,11 @@
   }
 
   .account-preference-toggle-content strong {
-    font-size: 0.625rem;
+    font-size: 0.8125rem;
   }
 
   .account-preference-toggle-content span {
-    font-size: 0.625rem;
+    font-size: 0.8125rem;
   }
 
   .account-preference-switch {

@@ -66,9 +66,7 @@ function ProductsPage() {
   return (
     <main className="products-page">
 
-      <header className="products-navbar">
-        <Navbar />
-      </header>
+      <Navbar />
 
       <section className="products-hero">
         <Herosection />

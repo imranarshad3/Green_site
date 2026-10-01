@@ -20,6 +20,7 @@ import {
   POT_STYLES,
 } from "../../../utils/cart";
 import "./ProductHero.css";
+import { GUARANTEE_DAYS, RETURN_DAYS } from "../../../utils/storeInfo";
 
 const ProductHero = ({ product }) => {
   const { isWishlisted, toggleWishlist } = useWishlist();
@@ -270,7 +271,7 @@ const ProductHero = ({ product }) => {
 
               <div>
                 <strong>Plant guarantee</strong>
-                <span>30-day healthy plant promise</span>
+                <span>{GUARANTEE_DAYS}-day healthy plant promise</span>
               </div>
             </div>
 
@@ -279,7 +280,7 @@ const ProductHero = ({ product }) => {
 
               <div>
                 <strong>Easy returns</strong>
-                <span>Hassle-free within 14 days</span>
+                <span>Hassle-free within {RETURN_DAYS} days</span>
               </div>
             </div>
           </div>
