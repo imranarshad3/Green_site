@@ -8,7 +8,6 @@ import { getProductKey, getProductPath } from "../../../utils/products";
 const RELATED_COUNT = 3;
 
 function ProductRelatedCard({ product }) {
-    
   return (
     <Link to={getProductPath(product)} className="pd-card">
       <div className="pd-card-image">
@@ -31,8 +30,6 @@ function ProductRelatedCard({ product }) {
   );
 }
 
-// Same-category items first, then the rest of the catalog. Without a
-// product (e.g. on the cart page) this is just the start of the plant catalog.
 function getRelatedProducts(product, products, fertilizers) {
   if (!product) {
     return products.slice(0, RELATED_COUNT);

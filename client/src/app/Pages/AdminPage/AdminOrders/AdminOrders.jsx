@@ -11,7 +11,6 @@ function AdminOrders() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // RLS returns every order to admins.
   const load = useCallback(
     () =>
       supabase

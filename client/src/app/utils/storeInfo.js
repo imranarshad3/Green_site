@@ -1,4 +1,3 @@
-// Store details shown on the home, contact and FAQ pages and in the footer.
 export const STORE = {
   name: "Plantify Garden",
   phone: "0300 1223344",
@@ -8,7 +7,6 @@ export const STORE = {
   hours: "Open every day, 11am – 5:30pm",
 };
 
-// Healthy-plant guarantee and returns window, in days.
 export const GUARANTEE_DAYS = 14;
 export const RETURN_DAYS = 14;
 

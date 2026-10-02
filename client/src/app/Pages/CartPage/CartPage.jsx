@@ -34,7 +34,6 @@ function CartPage() {
   const hasItems = cartItems.length > 0;
 
   const handleCheckout = async () => {
-    // Guests sign in first; their cart is merged into the account.
     if (!isSignedIn) {
       openSignIn();
       return;
@@ -44,9 +43,9 @@ function CartPage() {
     setCheckoutError(null);
 
     try {
-      await placeOrder();
+      const order = await placeOrder();
       resetCart();
-      navigate("/orders");
+      navigate("/orders", { state: { placedOrder: order?.order_number ?? null } });
     } catch (error) {
       setCheckoutError(error.message || "Checkout failed. Please try again.");
     } finally {

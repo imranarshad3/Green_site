@@ -26,15 +26,15 @@ function ProductCard({ product }) {
         )}
 
         <div className="product-actions">
-          <button 
-            className="action-btn" 
+          <button
+            className="action-btn"
             aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
             onClick={handleWishlistClick}
           >
-            <Heart 
-              size={18} 
-              strokeWidth={1.5} 
-              fill={isWishlisted ? "#ff4d4d" : "none"} 
+            <Heart
+              size={18}
+              strokeWidth={1.5}
+              fill={isWishlisted ? "#ff4d4d" : "none"}
               color={isWishlisted ? "#ff4d4d" : "currentColor"}
             />
           </button>
@@ -45,10 +45,16 @@ function ProductCard({ product }) {
           </button>
         </div>
 
-        <img
-          src={product.images[0]}
-          alt={product.name}
-        />
+        <Link
+          to={productPath}
+          className="product-card-image-link"
+          aria-label={`View ${product.name}`}
+        >
+          <img
+            src={product.images[0]}
+            alt={product.name}
+          />
+        </Link>
 
         <CartButton
           product={product}
@@ -57,7 +63,7 @@ function ProductCard({ product }) {
           label={`ADD TO CART — $${product.price}`}
           inCartLabel="IN CART ✓"
         />
-        
+
       </div>
 
       <div className="product-card-content">

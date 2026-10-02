@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useLocation, useParams } from "react-router-dom";
 
@@ -15,14 +15,9 @@ import ProductRelated from "./ProductRelated/ProductRelated";
 import SiteFooter from "./SiteFooter/SiteFooter";
 
 function ProductDetails() {
-
   const { id } = useParams();
   const location = useLocation();
   const { findProduct, loading } = useProducts();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
 
   const isFertilizer = location.pathname.includes("/fertilizer");
 
@@ -43,7 +38,6 @@ function ProductDetails() {
 
       <Navbar />
 
-      {/* Keyed so gallery/quantity state resets when moving between products. */}
       <ProductHero key={getProductKey(product)} product={product} />
 
       {!isFertilizer && <ProductSpecs product={product} />}

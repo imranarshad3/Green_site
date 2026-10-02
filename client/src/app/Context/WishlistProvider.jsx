@@ -9,15 +9,12 @@ import { getProductKey } from "../utils/products";
 const fetchWishlist = (supabase) =>
   supabase.from("wishlist_items").select("product_id").order("created_at");
 
-// The wishlist lives in the wishlist_items table, so it needs an account:
-// guests who press a heart get the sign-in modal instead.
 export function WishlistProvider({ children }) {
   const supabase = useSupabase();
   const { isLoaded, isSignedIn, userId } = useAuth();
   const { openSignIn } = useClerk();
   const { findProductById } = useProducts();
 
-  // Product ids, oldest first, tagged with their owner.
   const [wishlist, setWishlist] = useState({ owner: null, ids: [] });
   const [error, setError] = useState(null);
 

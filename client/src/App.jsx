@@ -1,11 +1,11 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import HomePage from "./app/Pages/HomePage/HomePage";
 import ProtectedRoute from "./app/ReusedComponents/ProtectedRoute/ProtectedRoute";
 import AdminRoute from "./app/ReusedComponents/AdminRoute/AdminRoute";
 import NotFoundPage from "./app/Pages/NotFoundPage/NotFoundPage";
+import ScrollManager from "./app/ReusedComponents/ScrollManager/ScrollManager";
 
-// Every page except the home page is its own chunk, loaded on first visit.
 const ProductsPage = lazy(() => import("./app/Pages/ProductsPage/ProductsPage"));
 const ProductDetails = lazy(() => import("./app/Pages/ProductDetails/ProductDetails"));
 const FertilizerPage = lazy(() => import("./app/Pages/FertilizerPage/FertilizerPage"));
@@ -20,10 +20,22 @@ const AdminPage = lazy(() => import("./app/Pages/AdminPage/AdminPage"));
 const ContactPage = lazy(() => import("./app/Pages/ContactPage/ContactPage"));
 const FaqPage = lazy(() => import("./app/Pages/FaqPage/FaqPage"));
 
+function RouteView({ children }) {
+  const { pathname } = useLocation();
+
+  return (
+    <div key={pathname} className="route-view">
+      {children}
+    </div>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollManager />
       <Suspense fallback={<div className="page-loading" aria-busy="true" />}>
+      <RouteView>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
@@ -72,6 +84,7 @@ function App() {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </RouteView>
       </Suspense>
     </BrowserRouter>
   );

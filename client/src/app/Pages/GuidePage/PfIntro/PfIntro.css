@@ -62,7 +62,6 @@
   line-height: 1.8;
 }
 
-
 @media (max-width: 1300px) {
   .pf-intro-inner {
     max-width: 1120px;
@@ -75,7 +74,6 @@
     font-size: 4rem;
   }
 }
-
 
 @media (max-width: 1050px) {
   .pf-intro-inner {
@@ -95,7 +93,6 @@
     line-height: 1.75;
   }
 }
-
 
 @media (max-width: 850px) {
   .pf-intro-inner {
@@ -121,7 +118,6 @@
   }
 }
 
-
 @media (max-width: 600px) {
   .pf-intro-inner {
     padding: 65px 24px 70px;
@@ -144,7 +140,6 @@
   }
 }
 
-
 @media (max-width: 450px) {
   .pf-intro-inner {
     padding: 55px 20px 60px;
@@ -165,7 +160,6 @@
     line-height: 1.7;
   }
 }
-
 
 @media (max-width: 360px) {
   .pf-intro-inner {

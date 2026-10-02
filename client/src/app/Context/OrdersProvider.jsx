@@ -9,7 +9,6 @@ export function OrdersProvider({ children }) {
   const supabase = useSupabase();
   const { isLoaded, isSignedIn, userId } = useAuth();
 
-  // Newest first, tagged with their owner.
   const [state, setState] = useState({ owner: null, orders: [] });
   const [error, setError] = useState(null);
 
@@ -20,7 +19,6 @@ export function OrdersProvider({ children }) {
       supabase
         .from("orders")
         .select(ORDER_SELECT)
-        // Admins can read every order; this list is only the user's own.
         .eq("user_id", owner)
         .order("created_at", { ascending: false })
         .then(({ data, error: fetchError }) => {
@@ -39,10 +37,25 @@ export function OrdersProvider({ children }) {
     }
   }, [isLoaded, isSignedIn, userId, load]);
 
-  // Checkout happens in the database: place_order() prices the saved cart,
-  // creates the order and empties the cart.
   const placeOrder = async () => {
     const { data, error: rpcError } = await supabase.rpc("place_order");
+
+    if (rpcError) {
+      throw rpcError;
+    }
+
+    await load(userId);
+    return data;
+  };
+
+  const buyNow = async (product, { quantity = 1, size = null, potStyle = null } = {}) => {
+    const isPlant = product.type !== "fertilizer";
+    const { data, error: rpcError } = await supabase.rpc("buy_now", {
+      p_product_id: product.id,
+      p_quantity: quantity,
+      p_size: isPlant ? size : null,
+      p_pot_style: isPlant ? potStyle : null,
+    });
 
     if (rpcError) {
       throw rpcError;
@@ -59,6 +72,7 @@ export function OrdersProvider({ children }) {
         loading: isSignedIn && !isCurrent,
         error,
         placeOrder,
+        buyNow,
       }}
     >
       {children}

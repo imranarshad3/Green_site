@@ -63,8 +63,6 @@
 .hm-services-contact a:hover {
   background: #ffffff;
 }
-
-/* Phones: text on top, the photo as its own strip underneath. */
 @media (max-width: 768px) {
   .hm-services-banner {
     flex-direction: column;

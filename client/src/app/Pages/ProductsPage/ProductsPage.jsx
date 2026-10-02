@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Navbar from "../../ReusedComponents/Navbar/Navbar";
 import "./ProductsPage.css";
@@ -37,8 +37,6 @@ function matchesFilters(product, filters) {
   return categoryMatch && careMatch && priceMatch && potColorMatch;
 }
 
-// "featured" keeps catalog order; there is no date field, so "newest" uses
-// the highest ids.
 const sorters = {
   featured: () => 0,
   newest: (a, b) => b.id - a.id,
@@ -58,10 +56,6 @@ function ProductsPage() {
   const visibleProducts = productsData
     .filter((product) => matchesFilters(product, filters))
     .sort(sorters[sort]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <main className="products-page">
@@ -97,7 +91,6 @@ function ProductsPage() {
           </aside>
 
           <section className="products-collection">
-            {/* Keyed so pagination returns to page 1 whenever the result set changes. */}
             <Collection
               key={`${JSON.stringify(filters)}-${sort}`}
               products={visibleProducts}

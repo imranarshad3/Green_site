@@ -19,7 +19,6 @@ const PRODUCT_LINKS = [
 
 const navClass = ({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`;
 
-// variant "dark" sits on the green page tops; "light" on cream ones (account).
 function Navbar({ variant = "dark" }) {
   const { cartCount } = useCart();
   const { pathname } = useLocation();
@@ -35,7 +34,6 @@ function Navbar({ variant = "dark" }) {
     setProductsOpen(false);
   };
 
-  // Escape closes menus; a click outside closes the products dropdown.
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -57,7 +55,6 @@ function Navbar({ variant = "dark" }) {
     };
   }, []);
 
-  // Keep the page from scrolling behind the open mobile menu.
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
@@ -112,7 +109,6 @@ function Navbar({ variant = "dark" }) {
             Guide
           </NavLink>
 
-          {/* Extra links only shown in the mobile menu. */}
           <NavLink to="/faq" className={(state) => `${navClass(state)} site-nav-mobile-only`} onClick={close}>
             FAQ
           </NavLink>
@@ -150,7 +146,6 @@ function Navbar({ variant = "dark" }) {
           >
             <ShoppingBag size={20} strokeWidth={1.6} />
             {cartCount > 0 && (
-              // Keyed so the bump animation replays when the count changes.
               <span key={cartCount} className="site-nav-count">
                 {cartCount}
               </span>

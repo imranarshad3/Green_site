@@ -1,19 +1,31 @@
-/* Global reset. Every page's styles assume it (it used to live in
-   HomePage.css, but because all CSS is bundled together it always applied
-   site-wide). */
 * {
   margin: 0;
   padding: 0;
 }
+.route-view {
+  animation: route-fade-in 0.28s ease-out;
+}
 
-/* Shown while a page's code chunk loads; keeps the screen from flashing. */
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-view {
+    animation: none;
+  }
+}
+
 .page-loading {
   min-height: 100vh;
   background: #f7f5ee;
 }
-
-/* Design tokens for the hm-* components (home page, footer, contact and
-   FAQ pages). */
 :root {
   --hm-green: #005c52;
   --hm-green-deep: #0d3b31;

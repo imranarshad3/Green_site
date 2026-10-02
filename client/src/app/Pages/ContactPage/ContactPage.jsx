@@ -21,9 +21,8 @@ const emptyForm = (user) => ({
 function ContactForm() {
   const supabase = useSupabase();
   const { user } = useUser();
-  // Prefilled once from the signed-in user, if any.
   const [form, setForm] = useState(() => emptyForm(user));
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
 
   const update = (field) => (event) =>

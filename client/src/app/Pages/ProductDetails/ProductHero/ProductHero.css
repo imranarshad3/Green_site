@@ -272,8 +272,24 @@
   justify-content: center;
 }
 
-.ph-quantity button:hover {
+.ph-quantity button:hover:not(:disabled) {
   background: #f0f3ed;
+}
+
+.ph-quantity button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.ph-stock {
+  margin-top: 0.75rem;
+  color: #a0611c;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ph-stock.is-out {
+  color: #9b2c2c;
 }
 
 .ph-quantity span {
@@ -328,6 +344,36 @@
 .wishlistbutton.liked {
   color: #b85b55;
   border-color: #b85b55;
+}
+
+.productactions {
+  flex-wrap: wrap;
+}
+
+.ph-buy-now {
+  flex: 1 0 100%;
+  height: 50px;
+  border: none;
+  border-radius: 7px;
+  background: #d06a43;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.ph-buy-now:hover:not(:disabled) {
+  background: #b9573a;
+}
+
+.ph-buy-now:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .product-benefits {
@@ -610,8 +656,6 @@
   background: #2f6b57;
   cursor: default;
 }
-
-/* Highlights the quantity control while it edits the cart line. */
 .productactions .ph-quantity.is-in-cart {
   border-color: #2f6b57;
   box-shadow: 0 0 0 1px #2f6b57;

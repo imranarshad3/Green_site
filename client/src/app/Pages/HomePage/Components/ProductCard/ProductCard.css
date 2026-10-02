@@ -161,8 +161,6 @@
 .hm-card-cart .cart-stepper {
   border-radius: 999px;
 }
-
-/* Two narrow columns on phones: stack name and price. */
 @media (max-width: 560px) {
   .hm-card-row {
     flex-direction: column;

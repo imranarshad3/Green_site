@@ -1,7 +1,3 @@
-// Cart lines are stored as { productId, size, potStyle, quantity }, both in
-// localStorage (guests) and in the cart_items table (signed-in users).
-// size/potStyle are null for fertilizers.
-
 export const MAX_LINE_QUANTITY = 99;
 
 export const sameLine = (a, b) =>
@@ -9,7 +5,6 @@ export const sameLine = (a, b) =>
   (a.size ?? null) === (b.size ?? null) &&
   (a.potStyle ?? null) === (b.potStyle ?? null);
 
-// Returns lines with `line` set to `quantity` (removed when <= 0).
 export function withLineQuantity(lines, line, quantity) {
   const capped = Math.min(quantity, MAX_LINE_QUANTITY);
   const exists = lines.some((item) => sameLine(item, line));
@@ -43,8 +38,6 @@ const matchLine = (query, line) => {
   return matched;
 };
 
-// Makes the database row for `line` hold `quantity` (deleting it at 0).
-// Row-level security scopes every query to the signed-in user.
 export async function persistLineQuantity(supabase, line, quantity) {
   const table = () => supabase.from("cart_items");
 

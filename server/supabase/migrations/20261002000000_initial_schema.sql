@@ -1,11 +1,3 @@
--- Plantify schema.
---
--- Auth is handled by Clerk (configured as a Supabase third-party auth
--- provider), so users have no row in auth.users. The Clerk user id is the
--- `sub` claim of the request JWT, read via public.requesting_user_id().
-
--- Helpers ------------------------------------------------------------------
-
 create function public.requesting_user_id()
 returns text
 language sql
@@ -21,7 +13,6 @@ create table public.admins (
 
 alter table public.admins enable row level security;
 
--- Admins are added by hand in the SQL editor; nobody can write via the API.
 create policy "Users can see whether they are an admin"
   on public.admins for select
   to authenticated
@@ -39,8 +30,6 @@ as $$
   )
 $$;
 
--- Catalog ------------------------------------------------------------------
-
 create type public.product_type as enum ('plant', 'fertilizer');
 
 create table public.products (
@@ -54,7 +43,7 @@ create table public.products (
   rating numeric(2, 1) check (rating between 0 and 5),
   reviews integer not null default 0 check (reviews >= 0),
   badge text,
-  -- Object keys in the public "product-images" storage bucket.
+
   images text[] not null default '{}',
   care_level text,
   colors text[] not null default '{}',
@@ -106,13 +95,11 @@ create trigger products_set_updated_at
   before update on public.products
   for each row execute function public.set_updated_at();
 
--- Cart ---------------------------------------------------------------------
-
 create table public.cart_items (
   id bigint generated always as identity primary key,
   user_id text not null default public.requesting_user_id(),
   product_id bigint not null references public.products (id) on delete cascade,
-  -- Plant-only options; null for fertilizers.
+
   size text check (size in ('Small', 'Medium', 'Large')),
   pot_style text check (pot_style in ('Ivory', 'Sand', 'Charcoal')),
   quantity integer not null check (quantity between 1 and 99),
@@ -130,8 +117,6 @@ create policy "Users manage their own cart"
   using (user_id = public.requesting_user_id())
   with check (user_id = public.requesting_user_id());
 
--- Wishlist -----------------------------------------------------------------
-
 create table public.wishlist_items (
   user_id text not null default public.requesting_user_id(),
   product_id bigint not null references public.products (id) on delete cascade,
@@ -146,8 +131,6 @@ create policy "Users manage their own wishlist"
   to authenticated
   using (user_id = public.requesting_user_id())
   with check (user_id = public.requesting_user_id());
-
--- Orders -------------------------------------------------------------------
 
 create type public.order_status as enum (
   'processing', 'shipped', 'delivered', 'cancelled'
@@ -173,8 +156,7 @@ create index orders_user_idx on public.orders (user_id, created_at desc);
 create table public.order_items (
   id bigint generated always as identity primary key,
   order_id bigint not null references public.orders (id) on delete cascade,
-  -- Nullable so orders survive a product being deleted; name, image and
-  -- price are snapshots taken at checkout.
+
   product_id bigint references public.products (id) on delete set null,
   name text not null,
   image text,
@@ -189,7 +171,6 @@ create index order_items_order_idx on public.order_items (order_id);
 alter table public.orders enable row level security;
 alter table public.order_items enable row level security;
 
--- Orders are only created through place_order(), so there is no insert policy.
 create policy "Users see their own orders; admins see all"
   on public.orders for select
   to authenticated
@@ -212,15 +193,9 @@ create policy "Order items follow their order"
     )
   );
 
--- Only status may change after checkout.
 revoke update on public.orders from authenticated;
 grant update (status) on public.orders to authenticated;
 
--- Checkout -----------------------------------------------------------------
-
--- Turns the caller's cart into an order using current catalog prices, then
--- empties the cart. Pricing rules must match client/src/app/utils/cart.js,
--- which only uses them for display.
 create function public.place_order()
 returns public.orders
 language plpgsql
@@ -275,8 +250,6 @@ $$;
 revoke execute on function public.place_order() from public, anon;
 grant execute on function public.place_order() to authenticated;
 
--- Storage ------------------------------------------------------------------
-
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
   'product-images',
@@ -287,7 +260,6 @@ values (
 )
 on conflict (id) do nothing;
 
--- The bucket is public for reads; only admins can upload or replace photos.
 create policy "Admins can upload product images"
   on storage.objects for insert
   to authenticated

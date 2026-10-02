@@ -27,7 +27,7 @@
 
 .footer-section .logo {
   margin-bottom: 15px;
-  color: #1f705f; /* Accent green color matching your theme icons */
+  color: #1f705f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +62,7 @@
 }
 
 .footer-section .foot {
-  background-color: #090f0c; 
+  background-color: #090f0c;
   text-align: center;
   padding: 20px;
   font-family: Arial, sans-serif;

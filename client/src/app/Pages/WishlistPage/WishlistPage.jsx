@@ -17,7 +17,6 @@ function WishlistPage() {
   const { wishlistProducts: products, removeFromWishlist } = useWishlist();
   const [sort, setSort] = useState("latest");
 
-  // The wishlist is stored oldest first, so "latest" is just the reverse.
   const sortedProducts = [...products].reverse().sort((a, b) => {
     if (sort === "low") {
       return a.price - b.price;

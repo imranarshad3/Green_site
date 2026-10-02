@@ -107,7 +107,6 @@ function CartLayout({
             </article>
           ))}
 
-          {/* FREE DELIVERY MESSAGE */}
           <div className="delivery-message">
 
             <span className="delivery-message-icon">
@@ -132,7 +131,6 @@ function CartLayout({
 
         </div>
 
-        {/* RIGHT SIDE */}
         <aside className="cart-sidebar">
 
           <div className="summary-card">

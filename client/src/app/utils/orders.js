@@ -7,11 +7,11 @@ const STATUS_LABELS = {
   cancelled: "Cancelled",
 };
 
-// Database row (with nested order_items) -> the shape the order UI uses.
 export const toOrder = (row) => ({
   id: row.order_number,
   dbId: row.id,
   userId: row.user_id,
+  createdAt: row.created_at,
   date: new Date(row.created_at).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

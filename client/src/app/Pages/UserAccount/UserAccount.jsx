@@ -10,7 +10,6 @@ import AccountSupport from './AccountSupport/AccountSupport'
 import Navbar from '../../ReusedComponents/Navbar/Navbar'
 import AccountFooter from './AccountFooter/AccountFooter'
 
-
 function UserAccount() {
   return (
     <div className="user-account-page">

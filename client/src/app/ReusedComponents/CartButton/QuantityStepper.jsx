@@ -10,6 +10,7 @@ function QuantityStepper({
   name = "item",
   compact = false,
   className = "",
+  canIncrease = true,
 }) {
   return (
     <div
@@ -25,7 +26,6 @@ function QuantityStepper({
         <Minus size={compact ? 13 : 15} />
       </button>
 
-      {/* Keyed so the bump animation replays on every change. */}
       <span key={quantity} className="cart-stepper-count" aria-live="polite">
         {quantity}
       </span>
@@ -33,6 +33,7 @@ function QuantityStepper({
       <button
         type="button"
         onClick={onIncrease}
+        disabled={!canIncrease}
         aria-label={`Increase ${name} quantity`}
       >
         <Plus size={compact ? 13 : 15} />

@@ -3,8 +3,6 @@ import { useAuth } from "@clerk/clerk-react";
 
 import { useSupabase } from "./SupabaseContext";
 
-// Whether the signed-in user has a row in public.admins. RLS lets users read
-// only their own row, so a non-empty result means "admin".
 export function useIsAdmin() {
   const supabase = useSupabase();
   const { isLoaded, isSignedIn, userId } = useAuth();

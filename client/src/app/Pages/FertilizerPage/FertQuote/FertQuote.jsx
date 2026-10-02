@@ -2,7 +2,6 @@ import React from 'react'
 import "./FertQuote.css";
 import { Link } from 'react-router-dom';
 
-
 function FertQuote() {
   return (
         <div className="fert-qoute-section">
