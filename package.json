@@ -9,6 +9,7 @@
     "dev": "npm run db:start && npm run dev -w client",
     "build": "npm run build -w client",
     "lint": "npm run lint -w client",
+
     "db:start": "npm run start -w server",
     "db:stop": "npm run stop -w server",
     "db:reset": "npm run reset -w server",
