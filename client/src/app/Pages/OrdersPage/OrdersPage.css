@@ -99,25 +99,3 @@
   }
 
 }
-
-
-.orders-placed-banner {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: calc(100% - 48px);
-  max-width: 1152px;
-  margin: 1.5rem auto;
-  padding: 1rem 1.25rem;
-  box-sizing: border-box;
-  border: 1px solid rgba(0, 92, 82, 0.2);
-  border-radius: 0.875rem;
-  background: #e8f2ec;
-  color: #0d3b31;
-  font-size: 0.9375rem;
-}
-
-.orders-placed-banner svg {
-  flex-shrink: 0;
-  color: #005c52;
-}

@@ -55,10 +55,10 @@ function OrderCard({ order }) {
         </div>
 
         <Link
-          to="/products"
+          to={`/orders/${order.id}`}
           className="order-details-btn"
         >
-          Shop again
+          View details
           <span>→</span>
         </Link>
 

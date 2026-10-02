@@ -1,13 +1,17 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
+  BellRing,
   EyeOff,
   Mail,
   Minus,
   PackageCheck,
+  PackageX,
   RefreshCw,
+  RotateCcw,
 } from "lucide-react";
 
 import { useSupabase } from "../../../Context/SupabaseContext";
@@ -92,6 +96,8 @@ function BarList({ rows, emptyText, ariaLabel }) {
   );
 }
 
+const LOW_STOCK = 5;
+
 function StatusBadge({ status }) {
   return (
     <span className={`dash-status is-${status}`}>
@@ -105,7 +111,7 @@ function AdminDashboard({ onNavigate }) {
   const supabase = useSupabase();
   const { allProducts } = useProducts();
   const [range, setRange] = useState("30d");
-  const [data, setData] = useState({ orders: [], messages: [] });
+  const [data, setData] = useState({ orders: [], messages: [], alerts: [] });
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState(null);
 
@@ -114,13 +120,18 @@ function AdminDashboard({ onNavigate }) {
       Promise.all([
         supabase.from("orders").select(ORDER_SELECT).order("created_at", { ascending: false }),
         supabase.from("contact_messages").select("id, handled"),
-      ]).then(([ordersResult, messagesResult]) => {
-        const failure = ordersResult.error ?? messagesResult.error;
+        supabase.from("stock_alerts").select("product_id, email, created_at"),
+      ]).then(([ordersResult, messagesResult, alertsResult]) => {
+        const failure = ordersResult.error ?? messagesResult.error ?? alertsResult.error;
         if (failure) {
           setError(failure.message);
         } else {
           setError(null);
-          setData({ orders: ordersResult.data.map(toOrder), messages: messagesResult.data });
+          setData({
+            orders: ordersResult.data.map(toOrder),
+            messages: messagesResult.data,
+            alerts: alertsResult.data,
+          });
         }
         setStatus("ready");
       }),
@@ -139,6 +150,25 @@ function AdminDashboard({ onNavigate }) {
   const dashboard = useMemo(() => buildDashboard(data.orders, range), [data.orders, range]);
   const unreadMessages = data.messages.filter((message) => !message.handled).length;
   const hiddenProducts = allProducts.filter((product) => product.status === "draft").length;
+  const lowStock = allProducts
+    .filter((product) => product.status === "active" && product.stock <= LOW_STOCK)
+    .sort((a, b) => a.stock - b.stock);
+  const pendingReturns = data.orders.filter(
+    (order) => order.returnRequest?.status === "requested"
+  ).length;
+  const restockRequests = Object.values(
+    data.alerts.reduce((groups, alert) => {
+      const group = groups[alert.product_id] ?? {
+        product: allProducts.find((product) => product.id === alert.product_id),
+        emails: [],
+      };
+      group.emails.push(alert.email);
+      groups[alert.product_id] = group;
+      return groups;
+    }, {})
+  )
+    .filter((group) => group.product)
+    .sort((a, b) => b.emails.length - a.emails.length);
   const { totals, deltas, comparisonLabel } = dashboard;
 
   if (status === "loading") {
@@ -158,6 +188,22 @@ function AdminDashboard({ onNavigate }) {
       title: dashboard.openOrders === 1 ? "order to ship" : "orders to ship",
       action: "Open orders",
       tab: "orders",
+    },
+    {
+      key: "returns",
+      icon: RotateCcw,
+      count: pendingReturns,
+      title: pendingReturns === 1 ? "return to review" : "returns to review",
+      action: "Open orders",
+      tab: "orders",
+    },
+    {
+      key: "stock",
+      icon: PackageX,
+      count: lowStock.length,
+      title: lowStock.length === 1 ? "product low on stock" : "products low on stock",
+      action: "Restock",
+      tab: "products",
     },
     {
       key: "messages",
@@ -358,6 +404,68 @@ function AdminDashboard({ onNavigate }) {
           />
         </section>
 
+        <section className="dash-card">
+          <div className="dash-card-head">
+            <div>
+              <h2>Low stock</h2>
+              <p>Live products with {LOW_STOCK} or fewer left</p>
+            </div>
+            <button type="button" className="dash-link" onClick={() => onNavigate?.("products")}>
+              Products
+              <ArrowRight size={14} />
+            </button>
+          </div>
+
+          {lowStock.length === 0 ? (
+            <p className="dash-empty">Everything is well stocked.</p>
+          ) : (
+            <ul className="dash-stock-list">
+              {lowStock.slice(0, 8).map((product) => (
+                <li key={product.id}>
+                  {product.images[0] && <img src={product.images[0]} alt="" />}
+                  <span className="dash-stock-name">{product.name}</span>
+                  <span className={`dash-stock-count ${product.stock === 0 ? "is-out" : ""}`}>
+                    {product.stock === 0 ? "Sold out" : `${product.stock} left`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section className="dash-card">
+          <div className="dash-card-head">
+            <div>
+              <h2>Restock requests</h2>
+              <p>Customers waiting on “Notify me”</p>
+            </div>
+            <BellRing size={18} className="dash-card-icon" />
+          </div>
+
+          {restockRequests.length === 0 ? (
+            <p className="dash-empty">Nobody is waiting on a product right now.</p>
+          ) : (
+            <ul className="dash-stock-list">
+              {restockRequests.slice(0, 8).map(({ product, emails }) => (
+                <li key={product.id}>
+                  {product.images[0] && <img src={product.images[0]} alt="" />}
+                  <span className="dash-stock-name">
+                    {product.name}
+                    <small>{product.stock > 0 && product.status === "active" ? "Back in stock" : "Unavailable"}</small>
+                  </span>
+                  <a
+                    className="dash-link"
+                    href={`mailto:?bcc=${encodeURIComponent(emails.filter(Boolean).join(","))}&subject=${encodeURIComponent(`${product.name} is back at Plantify`)}`}
+                    title={emails.filter(Boolean).join(", ")}
+                  >
+                    {emails.length} waiting
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
         <section className="dash-card dash-card-full">
           <div className="dash-card-head">
             <div>
@@ -387,7 +495,11 @@ function AdminDashboard({ onNavigate }) {
                 <tbody>
                   {dashboard.recent.map((order) => (
                     <tr key={order.dbId}>
-                      <td className="dash-strong">#{order.id}</td>
+                      <td className="dash-strong">
+                        <Link to={`/admin?tab=orders&order=${order.id}`} className="dash-order-link">
+                          #{order.id}
+                        </Link>
+                      </td>
                       <td className="admin-muted">{order.date}</td>
                       <td>
                         {order.items.reduce((sum, item) => sum + item.quantity, 0)}{" "}

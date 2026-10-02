@@ -1,0 +1,298 @@
+.admin-order-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.admin-order-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-order-head h2 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.admin-order-head p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.admin-order-head-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.admin-order-head-actions .admin-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.admin-order-head-actions .admin-button {
+  text-decoration: none;
+}
+
+.admin-order-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.admin-order-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.admin-order-totals {
+  max-width: 18rem;
+  margin: 1rem 0 0 auto;
+}
+
+.admin-order-totals div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.375rem 0;
+  font-size: 0.875rem;
+}
+
+.admin-order-totals dt {
+  color: rgba(23, 63, 48, 0.6);
+}
+
+.admin-order-totals dd {
+  margin: 0;
+}
+
+.admin-order-totals .is-total {
+  margin-top: 0.375rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(23, 63, 48, 0.12);
+  font-weight: 600;
+}
+
+.admin-order-totals .is-total dt {
+  color: inherit;
+}
+
+.admin-order-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-order-timeline li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0 0 1rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.admin-order-timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 2px solid #c9d1c7;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.admin-order-timeline li::after {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  bottom: 0.1rem;
+  left: 0.36rem;
+  width: 2px;
+  background: #e3e8e1;
+}
+
+.admin-order-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.admin-order-timeline li:last-child::after {
+  display: none;
+}
+
+.admin-order-timeline li.is-done::before {
+  border-color: #2f6b57;
+  background: #2f6b57;
+}
+
+.admin-order-timeline li.is-cancelled::before {
+  border-color: #d06a43;
+  background: #d06a43;
+}
+
+.admin-order-customer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-order-customer code {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.5rem 0.625rem;
+  border-radius: 0.5rem;
+  background: #f3f5f1;
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-order-customer-stats {
+  margin: 0.75rem 0 0;
+  font-size: 0.8125rem;
+}
+
+.admin-order-history {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-order-history li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(23, 63, 48, 0.08);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 60rem) {
+  .admin-order-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.admin-order-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.admin-order-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-order-contact svg {
+  flex-shrink: 0;
+  margin-top: 0.1875rem;
+  color: rgba(23, 63, 48, 0.55);
+}
+
+.admin-order-contact a {
+  color: #173f30;
+}
+
+.admin-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(23, 63, 48, 0.08);
+}
+
+.admin-order-form .admin-label,
+.admin-order-return .admin-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.admin-order-form input,
+.admin-order-return textarea {
+  padding: 0.5rem 0.625rem;
+  border: 1px solid #d2d8d1;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+}
+
+.admin-order-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.admin-order-hint {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+.admin-order-return {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-order-return .admin-section-head {
+  margin-bottom: 0;
+}
+
+.admin-order-return p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.admin-order-return.is-requested {
+  border-color: #e6c98f;
+}
+
+.admin-order-return-details {
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #f6f4ee;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.admin-order-return-badge {
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.admin-order-return-badge.is-requested {
+  background: #fff8e7;
+  color: #9a7431;
+}
+
+.admin-order-return-badge.is-approved {
+  background: #edf8f1;
+  color: #26734d;
+}
+
+.admin-order-return-badge.is-rejected {
+  background: #fbefeb;
+  color: #a8442f;
+}

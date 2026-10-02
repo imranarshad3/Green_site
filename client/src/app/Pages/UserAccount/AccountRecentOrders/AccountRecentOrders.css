@@ -206,10 +206,15 @@
   background: #e5eee4;
 }
 
-.account-order-status-badge.shipping,
+.account-order-status-badge.shipped,
 .account-order-status-badge.processing {
   color: #806b42;
   background: #f1ead8;
+}
+
+.account-order-status-badge.cancelled {
+  color: #a8442f;
+  background: #fbefeb;
 }
 
 .account-order-status strong {

@@ -1,0 +1,134 @@
+.od-progress {
+  margin-bottom: 1.5rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.5rem;
+  background: #ffffff;
+}
+
+.od-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+}
+
+.od-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.od-progress-bar {
+  height: 4px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f1efe8;
+}
+
+.od-progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--hm-green);
+  transition: width 0.6s ease;
+}
+
+.od-step-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f1efe8;
+  color: rgba(23, 35, 28, 0.4);
+}
+
+.od-step.done .od-step-icon {
+  background: #e8f2ec;
+  color: var(--hm-green);
+}
+
+.od-step.current .od-step-icon {
+  background: var(--hm-green);
+  color: #ffffff;
+}
+
+.od-step div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.od-step strong {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.od-step small {
+  font-size: 0.75rem;
+  opacity: 0.55;
+}
+
+.od-step.upcoming strong {
+  opacity: 0.45;
+}
+
+.od-tracking {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #eef5fb;
+  color: #2f5577;
+  font-size: 0.875rem;
+}
+
+.od-tracking strong {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  letter-spacing: 0.02em;
+}
+
+.od-progress-cancelled {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  border-color: rgba(168, 68, 47, 0.2);
+  background: #fbefeb;
+  color: #8a3826;
+}
+
+.od-progress-cancelled svg {
+  flex-shrink: 0;
+}
+
+.od-progress-cancelled strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.od-progress-cancelled p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 48rem) {
+  .od-progress {
+    padding: 1.5rem;
+  }
+
+  .od-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .od-progress-bar {
+    display: none;
+  }
+}

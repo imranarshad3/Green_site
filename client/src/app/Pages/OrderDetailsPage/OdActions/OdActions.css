@@ -1,0 +1,130 @@
+.od-actions {
+  margin-bottom: 1.5rem;
+}
+
+.od-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.od-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6875rem 1.125rem;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 50px;
+  background: #ffffff;
+  color: #17231c;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.od-action:hover:not(:disabled) {
+  border-color: #17231c;
+}
+
+.od-action:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.od-action-primary {
+  border-color: var(--hm-green-deep);
+  background: var(--hm-green-deep);
+  color: #ffffff;
+}
+
+.od-action-primary:hover:not(:disabled) {
+  background: var(--hm-green);
+}
+
+.od-action-danger {
+  margin-left: auto;
+  color: #a8442f;
+}
+
+.od-action-danger:hover:not(:disabled) {
+  border-color: #a8442f;
+  background: #fbefeb;
+}
+
+.od-action-danger-solid {
+  border-color: #a8442f;
+  background: #a8442f;
+  color: #ffffff;
+}
+
+.od-action-danger-solid:hover:not(:disabled) {
+  background: #8a3826;
+}
+
+.od-actions-notice {
+  margin-top: 1rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: 0.875rem;
+  background: #e8f2ec;
+  color: #0d3b31;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.od-actions-notice a {
+  color: #005c52;
+  font-weight: 600;
+}
+
+.od-cancel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-width: 34rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(168, 68, 47, 0.25);
+  border-radius: 1.25rem;
+  background: #fffaf8;
+}
+
+.od-cancel h2 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.od-cancel p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.od-cancel label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.od-cancel select {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.625rem;
+  background: #ffffff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.od-cancel .od-cancel-error {
+  color: #a8442f;
+  opacity: 1;
+}
+
+@media (max-width: 48rem) {
+  .od-action-danger {
+    margin-left: 0;
+  }
+}

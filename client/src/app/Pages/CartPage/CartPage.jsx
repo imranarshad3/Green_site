@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth, useClerk } from "@clerk/clerk-react";
 
 import Navbar from "../../ReusedComponents/Navbar/Navbar";
@@ -9,16 +8,16 @@ import CartLayout from "./CartLayout/CartLayout";
 import EmptyCart from "./EmptyCart/EmptyCart";
 import ProductRelated from "../ProductDetails/ProductRelated/ProductRelated";
 import CartFooter from "./CartFooter/CartFooter";
+import CheckoutDialog from "../../ReusedComponents/CheckoutDialog/CheckoutDialog";
 
 import { useCart } from "../../Context/CartContext";
 import { useOrders } from "../../Context/OrdersContext";
 
 function CartPage() {
-  const navigate = useNavigate();
   const { isSignedIn } = useAuth();
   const { openSignIn } = useClerk();
-  const [checkingOut, setCheckingOut] = useState(false);
-  const [checkoutError, setCheckoutError] = useState(null);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [promo, setPromo] = useState(null);
 
   const {
     cartItems,
@@ -29,29 +28,33 @@ function CartPage() {
     resetCart,
   } = useCart();
 
-  const { placeOrder } = useOrders();
+  const { placeOrder, checkPromo } = useOrders();
 
   const hasItems = cartItems.length > 0;
 
-  const handleCheckout = async () => {
+  const handleCheckout = () => {
     if (!isSignedIn) {
       openSignIn();
       return;
     }
 
-    setCheckingOut(true);
-    setCheckoutError(null);
-
-    try {
-      const order = await placeOrder();
-      resetCart();
-      navigate("/orders", { state: { placedOrder: order?.order_number ?? null } });
-    } catch (error) {
-      setCheckoutError(error.message || "Checkout failed. Please try again.");
-    } finally {
-      setCheckingOut(false);
-    }
+    setCheckoutOpen(true);
   };
+
+  const applyPromo = async (code, subtotal) => {
+    setPromo(await checkPromo(code, subtotal));
+  };
+
+  const checkoutLines = cartItems.map((item) => ({
+    key: item.cartItemId,
+    name: item.name,
+    image: item.images?.[0],
+    options: [item.selectedSize, item.selectedPotStyle && `${item.selectedPotStyle} pot`]
+      .filter(Boolean)
+      .join(" · "),
+    price: item.price,
+    quantity: item.quantity,
+  }));
 
   return (
     <div className="cart-page">
@@ -69,9 +72,23 @@ function CartPage() {
             onDecrease={decreaseQuantity}
             onRemove={removeFromCart}
             onCheckout={handleCheckout}
-            checkingOut={checkingOut}
-            checkoutError={checkoutError}
+            promo={promo}
+            onApplyPromo={applyPromo}
+            onRemovePromo={() => setPromo(null)}
           />
+
+          {checkoutOpen && (
+            <CheckoutDialog
+              lines={checkoutLines}
+              initialPromo={promo}
+              onClose={() => setCheckoutOpen(false)}
+              onPlace={placeOrder}
+              onPlaced={() => {
+                resetCart();
+                setPromo(null);
+              }}
+            />
+          )}
 
           <ProductRelated />
 

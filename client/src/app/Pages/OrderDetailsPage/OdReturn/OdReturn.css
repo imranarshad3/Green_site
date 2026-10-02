@@ -1,0 +1,103 @@
+.od-return {
+  display: flex;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.5rem;
+  background: #ffffff;
+}
+
+.od-return > svg {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  color: var(--hm-green);
+}
+
+.od-return > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.od-return strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.od-return p {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  opacity: 0.7;
+}
+
+.od-return.is-requested {
+  border-color: rgba(154, 116, 49, 0.3);
+  background: #fffaf0;
+}
+
+.od-return.is-requested > svg {
+  color: #9a7431;
+}
+
+.od-return.is-approved {
+  border-color: rgba(38, 115, 77, 0.3);
+  background: #edf8f1;
+}
+
+.od-return.is-rejected {
+  border-color: rgba(168, 68, 47, 0.25);
+  background: #fbefeb;
+}
+
+.od-return.is-rejected > svg {
+  color: #a8442f;
+}
+
+.od-return .od-return-note {
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.od-return-open {
+  margin-top: 0.875rem;
+}
+
+.od-return-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-width: 32rem;
+  margin-top: 1rem;
+}
+
+.od-return-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.od-return-form small {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.od-return-form select,
+.od-return-form textarea {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.625rem;
+  background: #ffffff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  resize: vertical;
+}
+
+.od-return .od-return-error {
+  color: #a8442f;
+  opacity: 1;
+}

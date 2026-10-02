@@ -1,0 +1,95 @@
+.od-header {
+  padding: 3.5rem 0 2rem;
+}
+
+.od-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+
+.od-back:hover {
+  opacity: 1;
+}
+
+.od-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.od-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.od-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.od-header p {
+  margin: 0;
+  font-size: 0.9375rem;
+  opacity: 0.6;
+}
+
+.od-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 50px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.od-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.od-status.processing {
+  color: #9a7431;
+  background: #fff8e7;
+}
+
+.od-status.shipped {
+  color: #476d91;
+  background: #eef5fb;
+}
+
+.od-status.delivered {
+  color: #26734d;
+  background: #edf8f1;
+}
+
+.od-status.cancelled {
+  color: #a8442f;
+  background: #fbefeb;
+}
+
+@media (max-width: 48rem) {
+  .od-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

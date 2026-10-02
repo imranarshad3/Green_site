@@ -1,0 +1,121 @@
+.od-page {
+  min-height: 100vh;
+  background: #faf9f5;
+  color: #17231c;
+}
+
+.od-main {
+  max-width: 1200px;
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+  box-sizing: border-box;
+}
+
+.od-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 22rem;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.od-message {
+  padding: 8rem 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  opacity: 0.6;
+}
+
+.od-missing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7rem 0 4rem;
+  text-align: center;
+  color: #173f34;
+}
+
+.od-missing h1 {
+  margin: 1.5rem 0 0.75rem;
+  font-family: var(--hm-display);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 400;
+}
+
+.od-missing p {
+  max-width: 28rem;
+  margin: 0 0 2rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  opacity: 0.65;
+}
+
+.od-missing-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  background: var(--hm-green-deep);
+  color: #ffffff;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.od-placed {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(0, 92, 82, 0.2);
+  border-radius: 0.875rem;
+  background: #e8f2ec;
+  color: #0d3b31;
+  font-size: 0.9375rem;
+}
+
+.od-placed svg {
+  flex-shrink: 0;
+  color: #005c52;
+}
+
+@media (max-width: 60rem) {
+  .od-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .od-page {
+    background: #ffffff;
+  }
+
+  .od-page .site-nav,
+  .od-page .site-footer,
+  .od-page .od-back,
+  .od-page .od-actions,
+  .od-page .od-help,
+  .od-page .od-placed,
+  .od-page .od-return,
+  .od-page .od-progress-bar {
+    display: none;
+  }
+
+  .od-main {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .od-layout {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+  }
+
+  .od-page .od-progress,
+  .od-page .od-items,
+  .od-page .od-summary {
+    border-color: #cccccc;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

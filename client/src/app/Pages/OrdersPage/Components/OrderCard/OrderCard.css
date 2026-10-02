@@ -86,6 +86,11 @@
   background: #fff8e7;
 }
 
+.order-status.cancelled {
+  color: #a8442f;
+  background: #fbefeb;
+}
+
 .order-items {
   padding: 10px 0;
 }
