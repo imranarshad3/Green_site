@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 
 import { useSupabase } from "../../../Context/SupabaseContext";
-import { PRODUCT_IMAGES_BUCKET, getImageUrl } from "../../../utils/products";
+import {
+  PRODUCT_IMAGES_BUCKET,
+  PRODUCT_STATUSES,
+  getImageUrl,
+} from "../../../utils/products";
 
 const CARE_LEVELS = ["Easy", "Moderate", "Expert"];
 
@@ -13,8 +17,8 @@ const slugify = (text) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
-const toForm = (product) => ({
-  type: product?.type ?? "plant",
+const toForm = (product, defaultType) => ({
+  type: product?.type ?? defaultType ?? "plant",
   name: product?.name ?? "",
   slug: product?.slug ?? "",
   category: product?.category ?? "",
@@ -27,7 +31,8 @@ const toForm = (product) => ({
   petFriendly: product?.petFriendly ?? false,
   colors: (product?.colors ?? []).join(", "),
   description: product?.description ?? "",
-  isActive: product?.isActive ?? true,
+  status: product?.status ?? "active",
+  stock: product?.stock ?? 0,
   imagePaths: product?.imagePaths ?? [],
 });
 
@@ -43,7 +48,8 @@ const toRow = (form) => ({
   badge: blankToNull(form.badge.trim().toUpperCase()),
   images: form.imagePaths,
   description: form.description.trim(),
-  is_active: form.isActive,
+  status: form.status,
+  stock: Number(form.stock),
   care_level: form.type === "plant" ? blankToNull(form.careLevel) : null,
   light: form.type === "plant" ? blankToNull(form.light.trim()) : null,
   watering: form.type === "plant" ? blankToNull(form.watering.trim()) : null,
@@ -57,9 +63,9 @@ const toRow = (form) => ({
       : [],
 });
 
-function ProductForm({ product, onDone, onCancel }) {
+function ProductForm({ product, defaultType, onDone, onCancel }) {
   const supabase = useSupabase();
-  const [form, setForm] = useState(() => toForm(product));
+  const [form, setForm] = useState(() => toForm(product, defaultType));
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
@@ -255,13 +261,27 @@ function ProductForm({ product, onDone, onCancel }) {
           </>
         )}
 
-        <label className="admin-checkbox">
+        <label>
+          Status
+          <select value={form.status} onChange={update("status")}>
+            {PRODUCT_STATUSES.map((status) => (
+              <option key={status.value} value={status.value}>
+                {status.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Stock
           <input
-            type="checkbox"
-            checked={form.isActive}
-            onChange={update("isActive")}
+            required
+            type="number"
+            min="0"
+            step="1"
+            value={form.stock}
+            onChange={update("stock")}
           />
-          Visible in store
         </label>
 
         <label className="admin-form-wide">

@@ -42,8 +42,13 @@
   transition: background-color 0.2s ease;
 }
 
-.cart-stepper button:hover {
+.cart-stepper button:hover:not(:disabled) {
   background: #f0f3ed;
+}
+
+.cart-stepper button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
 }
 
 .cart-stepper-count {

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 import Navbar from "../../ReusedComponents/Navbar/Navbar";
@@ -96,14 +96,6 @@ const SECTIONS = [
 ];
 
 function FaqPage() {
-  const { hash } = useLocation();
-
-  useEffect(() => {
-    if (hash) {
-      document.getElementById(hash.slice(1))?.scrollIntoView();
-    }
-  }, [hash]);
-
   return (
     <div className="faq-page">
       <Navbar />

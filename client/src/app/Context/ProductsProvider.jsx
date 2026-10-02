@@ -33,7 +33,7 @@ export function ProductsProvider({ children }) {
     fetchProducts(supabase).then(applyResult);
   }, [supabase, applyResult]);
 
-  const activeProducts = products.filter((product) => product.isActive);
+  const activeProducts = products.filter((product) => product.status !== "draft");
 
   const findProductById = (id) =>
     products.find((product) => String(product.id) === String(id));

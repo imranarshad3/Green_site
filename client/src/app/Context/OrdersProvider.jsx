@@ -48,6 +48,23 @@ export function OrdersProvider({ children }) {
     return data;
   };
 
+  const buyNow = async (product, { quantity = 1, size = null, potStyle = null } = {}) => {
+    const isPlant = product.type !== "fertilizer";
+    const { data, error: rpcError } = await supabase.rpc("buy_now", {
+      p_product_id: product.id,
+      p_quantity: quantity,
+      p_size: isPlant ? size : null,
+      p_pot_style: isPlant ? potStyle : null,
+    });
+
+    if (rpcError) {
+      throw rpcError;
+    }
+
+    await load(userId);
+    return data;
+  };
+
   return (
     <OrdersContext.Provider
       value={{
@@ -55,6 +72,7 @@ export function OrdersProvider({ children }) {
         loading: isSignedIn && !isCurrent,
         error,
         placeOrder,
+        buyNow,
       }}
     >
       {children}

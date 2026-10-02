@@ -14,3 +14,5 @@ values
   ('fertilizer', 'Balanced Growth', 'balanced-growth', 'Bestseller', 18, null, null, 0, null, array['fertilizers/balanced-growth.webp'], null, '{}', null, null, null, 'For foliage and everyday growth.'),
   ('fertilizer', 'Root Revival', 'root-revival', 'Root Care', 22, null, null, 0, null, array['fertilizers/root-revival.webp'], null, '{}', null, null, null, 'For stronger, healthier roots.'),
   ('fertilizer', 'Leaf & Bloom', 'leaf-and-bloom', 'New Formula', 20, null, null, 0, null, array['fertilizers/leaf-bloom.webp'], null, '{}', null, null, null, 'For vibrant foliage and flowers.');
+
+update public.products set stock = 20;

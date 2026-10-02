@@ -27,8 +27,24 @@ export const toProduct = (row) => ({
   petFriendly: row.pet_friendly,
   description: row.description,
   desc: row.description,
-  isActive: row.is_active,
+  status: row.status,
+  stock: row.stock,
 });
+
+export const PRODUCT_STATUSES = [
+  { value: "active", label: "Active" },
+  { value: "draft", label: "Draft" },
+  { value: "coming_soon", label: "Coming soon" },
+];
+
+export const isPurchasable = (product) =>
+  product?.status === "active" && product.stock > 0;
+
+export const getAvailabilityLabel = (product) => {
+  if (product?.status === "coming_soon") return "Coming soon";
+  if (product?.stock <= 0) return "Sold out";
+  return null;
+};
 
 export const getProductKey = (product) => `${product.type}-${product.id}`;
 

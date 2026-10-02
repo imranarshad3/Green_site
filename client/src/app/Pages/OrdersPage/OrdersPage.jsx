@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { CheckCircle2 } from "lucide-react";
 
 import Navbar from "../../ReusedComponents/Navbar/Navbar";
 import SiteFooter from "../ProductDetails/SiteFooter/SiteFooter";
@@ -14,6 +16,8 @@ import "./OrdersPage.css";
 
 function OrdersPage() {
   const { orders } = useOrders();
+  const { state } = useLocation();
+  const placedOrder = state?.placedOrder;
   const [activeFilter, setActiveFilter] = useState("All");
   const [sort, setSort] = useState("latest");
 
@@ -39,6 +43,15 @@ function OrdersPage() {
       <main className="orders-main">
 
         <OrdersHeader count={orders.length} />
+
+        {placedOrder && (
+          <p className="orders-placed-banner" role="status">
+            <CheckCircle2 size={20} />
+            <span>
+              Thank you! Order <strong>{placedOrder}</strong> has been placed.
+            </span>
+          </p>
+        )}
 
         <OrderFilters
           activeFilter={activeFilter}

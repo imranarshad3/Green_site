@@ -11,6 +11,7 @@ export const toOrder = (row) => ({
   id: row.order_number,
   dbId: row.id,
   userId: row.user_id,
+  createdAt: row.created_at,
   date: new Date(row.created_at).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

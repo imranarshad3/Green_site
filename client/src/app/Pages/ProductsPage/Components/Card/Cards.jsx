@@ -45,10 +45,16 @@ function ProductCard({ product }) {
           </button>
         </div>
 
-        <img
-          src={product.images[0]}
-          alt={product.name}
-        />
+        <Link
+          to={productPath}
+          className="product-card-image-link"
+          aria-label={`View ${product.name}`}
+        >
+          <img
+            src={product.images[0]}
+            alt={product.name}
+          />
+        </Link>
 
         <CartButton
           product={product}

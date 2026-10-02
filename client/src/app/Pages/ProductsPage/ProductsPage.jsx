@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Navbar from "../../ReusedComponents/Navbar/Navbar";
 import "./ProductsPage.css";
@@ -56,10 +56,6 @@ function ProductsPage() {
   const visibleProducts = productsData
     .filter((product) => matchesFilters(product, filters))
     .sort(sorters[sort]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <main className="products-page">

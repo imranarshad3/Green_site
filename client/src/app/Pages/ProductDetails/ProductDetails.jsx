@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useLocation, useParams } from "react-router-dom";
 
@@ -18,10 +18,6 @@ function ProductDetails() {
   const { id } = useParams();
   const location = useLocation();
   const { findProduct, loading } = useProducts();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
 
   const isFertilizer = location.pathname.includes("/fertilizer");
 

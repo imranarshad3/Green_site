@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useAuth, useClerk } from "@clerk/clerk-react";
 
 import {
   Heart,
   Minus,
   Plus,
   ShoppingBag,
+  Zap,
   Truck,
   ShieldCheck,
   RotateCcw,
@@ -20,7 +22,9 @@ import {
   POT_STYLES,
 } from "../../../utils/cart";
 import "./ProductHero.css";
+import BuyNowDialog from "../BuyNowDialog/BuyNowDialog";
 import { GUARANTEE_DAYS, RETURN_DAYS } from "../../../utils/storeInfo";
+import { getAvailabilityLabel, isPurchasable } from "../../../utils/products";
 
 const ProductHero = ({ product }) => {
   const { isWishlisted, toggleWishlist } = useWishlist();
@@ -34,16 +38,24 @@ const ProductHero = ({ product }) => {
   const [size, setSize] = useState(DEFAULT_SIZE);
   const [potStyle, setPotStyle] = useState(DEFAULT_POT_STYLE);
   const [popping, setPopping] = useState(false);
+  const [buying, setBuying] = useState(false);
+  const { isSignedIn } = useAuth();
+  const { openSignIn } = useClerk();
 
   const cartLine = useCartLine(product, { size, potStyle });
   const inCart = Boolean(cartLine.cartItem);
   const shownQuantity = inCart ? cartLine.quantity : quantity;
+  const unavailableLabel = isPurchasable(product)
+    ? null
+    : getAvailabilityLabel(product);
+  const stock = product?.stock ?? 0;
+  const lowStock = !unavailableLabel && stock <= 5;
 
   const increaseQuantity = () => {
     if (inCart) {
       cartLine.increase();
     } else {
-      setQuantity((prev) => prev + 1);
+      setQuantity((prev) => Math.min(prev + 1, stock));
     }
   };
 
@@ -68,6 +80,14 @@ const ProductHero = ({ product }) => {
     cartLine.add(quantity);
     setQuantity(1);
     setPopping(true);
+  };
+
+  const handleBuyNow = () => {
+    if (!isSignedIn) {
+      openSignIn();
+      return;
+    }
+    setBuying(true);
   };
 
   return (
@@ -150,6 +170,12 @@ const ProductHero = ({ product }) => {
             {product?.description || product?.desc}
           </p>
 
+          {(unavailableLabel || lowStock) && (
+            <p className={`ph-stock ${unavailableLabel ? "is-out" : ""}`}>
+              {unavailableLabel ?? `Only ${stock} left in stock`}
+            </p>
+          )}
+
           <div className="product-divider"></div>
 
           {hasPlantOptions && (
@@ -221,6 +247,7 @@ const ProductHero = ({ product }) => {
               <button
                 type="button"
                 onClick={increaseQuantity}
+                disabled={Boolean(unavailableLabel) || shownQuantity >= stock}
                 aria-label="Increase quantity"
               >
                 <Plus size={16} />
@@ -232,10 +259,12 @@ const ProductHero = ({ product }) => {
               className={`addto-cart ${popping ? "cart-pop" : ""}`}
               onClick={handleAddToCart}
               onAnimationEnd={() => setPopping(false)}
-              disabled={inCart}
+              disabled={inCart || Boolean(unavailableLabel)}
             >
               <ShoppingBag size={19} />
-              <span>{inCart ? "In cart ✓" : "Add to Cart →"}</span>
+              <span>
+                {inCart ? "In cart ✓" : unavailableLabel ?? "Add to Cart →"}
+              </span>
             </button>
 
             <button
@@ -251,7 +280,28 @@ const ProductHero = ({ product }) => {
                 fill={liked ? "currentColor" : "none"}
               />
             </button>
+
+            <button
+              type="button"
+              className="ph-buy-now"
+              onClick={handleBuyNow}
+              disabled={!product || Boolean(unavailableLabel)}
+            >
+              <Zap size={18} />
+              <span>Buy now</span>
+            </button>
           </div>
+
+          {product && (
+            <BuyNowDialog
+              open={buying}
+              onClose={() => setBuying(false)}
+              product={product}
+              quantity={shownQuantity}
+              size={size}
+              potStyle={potStyle}
+            />
+          )}
 
           <div className="product-benefits">
             <div className="benefit">

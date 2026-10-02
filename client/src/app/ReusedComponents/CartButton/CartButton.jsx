@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { useCartLine } from "../../Context/useCartLine";
+import { getAvailabilityLabel, isPurchasable } from "../../utils/products";
 import QuantityStepper from "./QuantityStepper";
 import "./CartButton.css";
 
@@ -19,6 +20,9 @@ function CartButton({
     options
   );
   const [popping, setPopping] = useState(false);
+  const unavailableLabel = isPurchasable(product)
+    ? null
+    : getAvailabilityLabel(product);
 
   const handleAdd = () => {
     add();
@@ -34,10 +38,10 @@ function CartButton({
         className={`cart-control-add ${buttonClassName} ${popping ? "cart-pop" : ""}`}
         onClick={handleAdd}
         onAnimationEnd={() => setPopping(false)}
-        disabled={Boolean(cartItem)}
+        disabled={Boolean(cartItem) || Boolean(unavailableLabel)}
       >
-        {icon}
-        {cartItem ? inCartLabel : label}
+        {!unavailableLabel && icon}
+        {cartItem ? inCartLabel : unavailableLabel ?? label}
       </button>
 
       {cartItem && (
@@ -47,6 +51,7 @@ function CartButton({
           onIncrease={increase}
           name={product.name}
           compact={compact}
+          canIncrease={quantity < product.stock}
         />
       )}
     </div>

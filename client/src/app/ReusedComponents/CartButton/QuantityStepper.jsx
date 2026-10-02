@@ -10,6 +10,7 @@ function QuantityStepper({
   name = "item",
   compact = false,
   className = "",
+  canIncrease = true,
 }) {
   return (
     <div
@@ -32,6 +33,7 @@ function QuantityStepper({
       <button
         type="button"
         onClick={onIncrease}
+        disabled={!canIncrease}
         aria-label={`Increase ${name} quantity`}
       >
         <Plus size={compact ? 13 : 15} />
