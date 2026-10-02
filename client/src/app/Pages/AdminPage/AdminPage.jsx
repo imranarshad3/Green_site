@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { LayoutDashboard, Mail, Menu, Package, ShoppingBag, Store } from "lucide-react";
+import { LayoutDashboard, Mail, Menu, Package, ShoppingBag, Store, Tag } from "lucide-react";
 
 import { useSupabase } from "../../Context/SupabaseContext";
 import AdminSidebar from "./AdminSidebar/AdminSidebar";
@@ -8,6 +8,7 @@ import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import AdminProducts from "./AdminProducts/AdminProducts";
 import AdminOrders from "./AdminOrders/AdminOrders";
 import AdminMessages from "./AdminMessages/AdminMessages";
+import AdminPromos from "./AdminPromos/AdminPromos";
 import "./AdminPage.css";
 
 const PAGES = {
@@ -28,10 +29,17 @@ const PAGES = {
   orders: {
     label: "Orders",
     title: "Orders",
-    description: "Track customer orders and update their status.",
+    description: "Track orders, add tracking numbers and handle returns.",
     icon: ShoppingBag,
     panel: AdminOrders,
     badgeLabel: "orders to ship",
+  },
+  promos: {
+    label: "Promotions",
+    title: "Promotions",
+    description: "Promo codes customers can apply at checkout.",
+    icon: Tag,
+    panel: AdminPromos,
   },
   messages: {
     label: "Messages",
@@ -45,7 +53,7 @@ const PAGES = {
 
 const GROUPS = [
   { label: "Overview", items: ["dashboard"] },
-  { label: "Store", items: ["products", "orders", "messages"] },
+  { label: "Store", items: ["products", "orders", "promos", "messages"] },
 ].map((group) => ({
   label: group.label,
   items: group.items.map((id) => ({ id, ...PAGES[id] })),

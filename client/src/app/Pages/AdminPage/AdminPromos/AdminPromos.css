@@ -1,0 +1,38 @@
+.admin-promo-form {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #dfe4dc;
+  border-radius: 0.75rem;
+  background: #fafbf8;
+}
+
+.admin-promo-code {
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.375rem;
+  background: #f0f3ed;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.admin-promo-state {
+  padding: 0.1875rem 0.5625rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.admin-promo-state.is-live {
+  background: #edf8f1;
+  color: #26734d;
+}
+
+.admin-promo-state.is-paused {
+  background: #f0f1ee;
+  color: #5d6b63;
+}
+
+.admin-promo-state.is-ended {
+  background: #fbefeb;
+  color: #a8442f;
+}

@@ -1,0 +1,129 @@
+.admin-order-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #173f30;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-order-back:hover {
+  text-decoration: underline;
+}
+
+.admin-order-number {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #173f30;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-order-number:hover {
+  color: #d06a43;
+  text-decoration: underline;
+}
+
+.admin-order-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.admin-order-toolbar .admin-order-filters {
+  max-width: 100%;
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+
+.admin-order-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 14rem;
+  max-width: 22rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid #dfe4dc;
+  border-radius: 999px;
+  background: #ffffff;
+  color: rgba(23, 63, 48, 0.6);
+}
+
+.admin-order-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  color: #173f30;
+  font: inherit;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+@media (max-width: 60rem) {
+  .admin-order-search {
+    max-width: none;
+  }
+}
+
+.admin-order-toolbar-side {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.admin-order-toolbar-side .admin-button:disabled {
+  cursor: default;
+}
+
+.admin-order-bulk {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #eef3ec;
+  font-size: 0.875rem;
+}
+
+.admin-order-bulk label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-table .admin-order-check {
+  width: 2rem;
+  padding-right: 0;
+}
+
+.admin-table tr.is-selected td {
+  background: #f5f8f3;
+}
+
+.admin-order-sub {
+  display: block;
+  color: rgba(23, 63, 48, 0.55);
+  font-size: 0.75rem;
+}
+
+.admin-order-number + .admin-product-tag {
+  margin-left: 0.5rem;
+}

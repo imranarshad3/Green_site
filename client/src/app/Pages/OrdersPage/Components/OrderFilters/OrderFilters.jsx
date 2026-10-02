@@ -7,6 +7,7 @@ const filters = [
   "Processing",
   "Shipped",
   "Delivered",
+  "Cancelled",
 ];
 
 function OrderFilters({

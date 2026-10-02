@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./CartLayout.css";
-import { getCartTotals } from "../../../utils/cart";
+import { describePromo, getCartTotals } from "../../../utils/cart";
 
 function CartLayout({
   cartItems = [],
@@ -9,16 +9,39 @@ function CartLayout({
   onDecrease,
   onRemove,
   onCheckout,
-  checkingOut = false,
-  checkoutError = null,
+  promo = null,
+  onApplyPromo,
+  onRemovePromo,
 }) {
+  const [promoInput, setPromoInput] = useState("");
+  const [promoError, setPromoError] = useState(null);
+  const [applying, setApplying] = useState(false);
+
   const {
     subtotal,
     discount,
+    promoDiscount,
     delivery,
     total,
     remainingForFreeDelivery,
-  } = getCartTotals(cartItems);
+  } = getCartTotals(cartItems, promo);
+
+  const applyPromo = async (event) => {
+    event.preventDefault();
+    if (!promoInput.trim()) return;
+
+    setApplying(true);
+    setPromoError(null);
+
+    try {
+      await onApplyPromo?.(promoInput.trim(), subtotal);
+      setPromoInput("");
+    } catch (error) {
+      setPromoError(error.message);
+    } finally {
+      setApplying(false);
+    }
+  };
 
   return (
     <section className="cart-layout-section">
@@ -122,7 +145,7 @@ function CartLayout({
 
               <p>
                 {remainingForFreeDelivery > 0
-                  ? `Add $${remainingForFreeDelivery} more to unlock free delivery. Plants are carefully packed and shipped within 1–2 business days.`
+                  ? `Add $${remainingForFreeDelivery.toFixed(2)} more to unlock free delivery. Plants are carefully packed and shipped within 1–2 business days.`
                   : "Your plants qualify for free delivery. Plants are carefully packed and shipped within 1–2 business days."}
               </p>
             </div>
@@ -145,7 +168,7 @@ function CartLayout({
 
               <div className="summary-row">
                 <span>Subtotal</span>
-                <strong>${subtotal}</strong>
+                <strong>${subtotal.toFixed(2)}</strong>
               </div>
 
               <div className="summary-row">
@@ -158,7 +181,7 @@ function CartLayout({
               <div className="summary-row">
                 <span>Discount</span>
                 <strong>
-                  {discount > 0 ? `−$${discount}` : "$0"}
+                  {discount > 0 ? `−$${discount.toFixed(2)}` : "$0"}
                 </strong>
               </div>
 
@@ -166,37 +189,52 @@ function CartLayout({
 
             <div className="summary-total">
               <span>Total</span>
-              <strong>${total}</strong>
+              <strong>${total.toFixed(2)}</strong>
             </div>
 
-            <div className="discount-form">
+            {promo ? (
+              <p className={`cart-promo-applied ${promoDiscount === 0 ? "is-inactive" : ""}`}>
+                <span>
+                  <strong>{promo.code}</strong> · {describePromo(promo)}
+                  {promoDiscount === 0 &&
+                    ` · spend $${promo.minSubtotal.toFixed(2)} to use it`}
+                </span>
+                <button type="button" onClick={onRemovePromo}>
+                  Remove
+                </button>
+              </p>
+            ) : (
+              <form className="discount-form" onSubmit={applyPromo}>
 
-              <input
-                type="text"
-                placeholder="Discount code"
-              />
+                <input
+                  type="text"
+                  placeholder="Discount code"
+                  value={promoInput}
+                  onChange={(event) => setPromoInput(event.target.value.toUpperCase())}
+                  aria-label="Discount code"
+                />
 
-              <button type="button">
-                Apply
-              </button>
+                <button type="submit" disabled={applying || !promoInput.trim()}>
+                  {applying ? "…" : "Apply"}
+                </button>
 
-            </div>
+              </form>
+            )}
+
+            {promoError && (
+              <p className="checkout-error" role="alert">
+                {promoError}
+              </p>
+            )}
 
             <button
               type="button"
               className="checkout-button"
               onClick={onCheckout}
-              disabled={checkingOut}
             >
-              <span>{checkingOut ? "Placing order…" : "Proceed to Checkout"}</span>
+              <span>Proceed to Checkout</span>
               <span>→</span>
             </button>
-
-            {checkoutError && (
-              <p className="checkout-error" role="alert">
-                {checkoutError}
-              </p>
-            )}
 
             <p className="secure-checkout">
               ✓ Secure checkout · Free returns within 14 days

@@ -12,6 +12,7 @@ import { useProducts } from "../../Context/ProductsContext";
 import ProductSpecs from "./ProductSpecs/ProductSpecs";
 import ProductStory from "./ProductStory/ProductStory";
 import ProductRelated from "./ProductRelated/ProductRelated";
+import ProductReviews from "./ProductReviews/ProductReviews";
 import SiteFooter from "./SiteFooter/SiteFooter";
 
 function ProductDetails() {
@@ -43,6 +44,8 @@ function ProductDetails() {
       {!isFertilizer && <ProductSpecs product={product} />}
 
       {!isFertilizer && <ProductStory product={product} />}
+
+      <ProductReviews key={getProductKey(product)} product={product} />
 
       <ProductRelated product={product} />
 

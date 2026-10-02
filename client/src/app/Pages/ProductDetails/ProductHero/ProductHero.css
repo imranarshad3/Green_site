@@ -131,6 +131,11 @@
 .review-count {
   color: #7b877f;
   font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+.review-count:hover {
+  text-decoration: underline;
 }
 
 .ph-price {
@@ -374,6 +379,30 @@
 .ph-buy-now:disabled {
   opacity: 0.6;
   cursor: default;
+}
+
+.ph-notify {
+  background: #173f34;
+}
+
+.ph-notify:hover:not(:disabled) {
+  background: #0d3b31;
+}
+
+.ph-notify.is-on {
+  border: 1px solid #173f34;
+  background: #e8f2ec;
+  color: #173f34;
+}
+
+.ph-notify.is-on:hover:not(:disabled) {
+  background: #dcebe2;
+}
+
+.ph-notify-note {
+  margin-top: 10px;
+  color: rgba(23, 63, 52, 0.7);
+  font-size: 0.8125rem;
 }
 
 .product-benefits {

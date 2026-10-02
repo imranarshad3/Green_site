@@ -1,7 +1,8 @@
 import {
   ArrowUpRightIcon,
   PackageCheckIcon,
-  TruckIcon
+  TruckIcon,
+  XCircleIcon
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -102,6 +103,8 @@ function AccountRecentOrders() {
                 >
                   {order.statusType === "delivered" ? (
                     <PackageCheckIcon size={14} />
+                  ) : order.statusType === "cancelled" ? (
+                    <XCircleIcon size={14} />
                   ) : (
                     <TruckIcon size={14} />
                   )}
@@ -115,8 +118,9 @@ function AccountRecentOrders() {
               </div>
 
               <Link
-                to="/orders"
+                to={`/orders/${order.id}`}
                 className="account-order-arrow"
+                aria-label={`View order ${order.id}`}
               >
                 <ArrowUpRightIcon size={17} />
               </Link>

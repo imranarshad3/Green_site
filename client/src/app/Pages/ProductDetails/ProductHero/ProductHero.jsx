@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useAuth, useClerk } from "@clerk/clerk-react";
 
 import {
+  Bell,
+  BellRing,
   Heart,
   Minus,
   Plus,
@@ -22,7 +24,9 @@ import {
   POT_STYLES,
 } from "../../../utils/cart";
 import "./ProductHero.css";
-import BuyNowDialog from "../BuyNowDialog/BuyNowDialog";
+import CheckoutDialog from "../../../ReusedComponents/CheckoutDialog/CheckoutDialog";
+import { useOrders } from "../../../Context/OrdersContext";
+import { useStockAlert } from "../../../Context/useStockAlert";
 import { GUARANTEE_DAYS, RETURN_DAYS } from "../../../utils/storeInfo";
 import { getAvailabilityLabel, isPurchasable } from "../../../utils/products";
 
@@ -42,6 +46,8 @@ const ProductHero = ({ product }) => {
   const { isSignedIn } = useAuth();
   const { openSignIn } = useClerk();
 
+  const { buyNow } = useOrders();
+  const stockAlert = useStockAlert(product);
   const cartLine = useCartLine(product, { size, potStyle });
   const inCart = Boolean(cartLine.cartItem);
   const shownQuantity = inCart ? cartLine.quantity : quantity;
@@ -80,6 +86,14 @@ const ProductHero = ({ product }) => {
     cartLine.add(quantity);
     setQuantity(1);
     setPopping(true);
+  };
+
+  const handleNotify = () => {
+    if (!isSignedIn) {
+      openSignIn();
+      return;
+    }
+    stockAlert.toggle();
   };
 
   const handleBuyNow = () => {
@@ -140,9 +154,9 @@ const ProductHero = ({ product }) => {
 
             <span className="separator">·</span>
 
-            <span className="review-count">
-              {product?.reviews} reviews
-            </span>
+            <a href="#reviews" className="review-count">
+              {product?.reviews} {product?.reviews === 1 ? "review" : "reviews"}
+            </a>
           </div>
           )}
 
@@ -281,25 +295,61 @@ const ProductHero = ({ product }) => {
               />
             </button>
 
-            <button
-              type="button"
-              className="ph-buy-now"
-              onClick={handleBuyNow}
-              disabled={!product || Boolean(unavailableLabel)}
-            >
-              <Zap size={18} />
-              <span>Buy now</span>
-            </button>
+            {unavailableLabel ? (
+              <button
+                type="button"
+                className={`ph-buy-now ph-notify ${stockAlert.subscribed ? "is-on" : ""}`}
+                onClick={handleNotify}
+                disabled={stockAlert.busy}
+                aria-pressed={stockAlert.subscribed}
+              >
+                {stockAlert.subscribed ? <BellRing size={18} /> : <Bell size={18} />}
+                <span>{stockAlert.subscribed ? "We'll notify you" : "Notify me"}</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="ph-buy-now"
+                onClick={handleBuyNow}
+                disabled={!product}
+              >
+                <Zap size={18} />
+                <span>Buy now</span>
+              </button>
+            )}
           </div>
 
-          {product && (
-            <BuyNowDialog
-              open={buying}
+          {unavailableLabel && stockAlert.subscribed && (
+            <p className="ph-notify-note">
+              You're on the list
+              {stockAlert.email ? ` for ${stockAlert.email}` : ""}. Tap again to stop.
+            </p>
+          )}
+
+          {product && buying && (
+            <CheckoutDialog
+              title="Buy now"
+              lines={[
+                {
+                  key: product.id,
+                  name: product.name,
+                  image: product.images?.[0],
+                  options: hasPlantOptions ? `${size} · ${potStyle} pot` : null,
+                  price: product.price,
+                  quantity: shownQuantity,
+                },
+              ]}
+              note="Only this item is ordered. Your cart stays as it is."
               onClose={() => setBuying(false)}
-              product={product}
-              quantity={shownQuantity}
-              size={size}
-              potStyle={potStyle}
+              onPlace={({ shipping, promoCode }) =>
+                buyNow(product, {
+                  quantity: shownQuantity,
+                  size,
+                  potStyle,
+                  shipping,
+                  promoCode,
+                })
+              }
             />
           )}
 
